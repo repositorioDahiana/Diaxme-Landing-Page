@@ -18,9 +18,7 @@ function TechnologySection() {
           </h2>
 
           <p className="technology__description">
-            En Radiólogos Asociados contamos con la infraestructura tecnológica 
-            más avanzada de la región, garantizando diagnósticos precisos y 
-            confiables para nuestros pacientes.
+            ?? Texto
           </p>
         </div>
 

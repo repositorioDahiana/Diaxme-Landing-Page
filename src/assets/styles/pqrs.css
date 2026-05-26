@@ -1,0 +1,808 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== PQRS HERO ==================== */
+
+.pqrs-hero {
+  position: relative;
+  width: 100%;
+  min-height: 72vh;
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* OVERLAY (Sincronizado con el resto de los hero) */
+.pqrs-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 38%,
+    rgba(255, 255, 255, 0.55) 70%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+}
+
+/* CONTAINER (Espaciado homologado con los otros banners) */
+.pqrs-hero__container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+
+  padding: 120px 32px 60px; /* Sincronizado para darle aire respecto al Navbar */
+}
+
+/* CONTENT */
+.pqrs-hero__content {
+  max-width: 780px;
+}
+
+/* TITLE */
+.pqrs-hero__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.5rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-hero-title);
+  margin-bottom: 18px;
+}
+
+/* DESCRIPTION */
+.pqrs-hero__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+  margin-bottom: 34px;
+}
+
+/* ==================== STATS / ACCESOS ==================== */
+
+.pqrs-hero__stats {
+  display: flex;
+  flex-wrap: nowrap; /* Mantiene tus cajas alineadas horizontalmente en desktop */
+  gap: 12px;
+}
+
+/* CARD (Texto directamente al frente del icono) */
+.pqrs-hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 300px; /* Respeta tu ancho fijo para tarjetas compactas */
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+
+  background: var(--bg-card); /* 255, 255, 255, 0.92 */
+  border: 1px solid var(--color-border-soft);
+
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+}
+
+.pqrs-hero__stat:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* ICON */
+.pqrs-hero__stat img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* CONTENEDOR TEXTO */
+.pqrs-hero__text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL (Cambiado de Azul a Gris Oscuro para mayor elegancia clínica) */
+.pqrs-hero__label {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.3;
+  margin-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+/* Feedback interactivo premium en Teal Principal al pasar el cursor */
+.pqrs-hero__stat:hover .pqrs-hero__label {
+  color: var(--color-brand-main);
+}
+
+/* DESC */
+.pqrs-hero__desc {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--color-text-soft);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .pqrs-hero {
+    min-height: auto;
+  }
+
+  .pqrs-hero__container {
+    padding: 100px 20px 60px; /* Sincronizados los paddings laterales en móvil */
+  }
+
+  .pqrs-hero__stats {
+    flex-direction: column; /* Cambia a vertical de forma limpia */
+    gap: 12px;
+  }
+
+  .pqrs-hero__stat {
+    width: 100%; /* Toma todo el ancho disponible en móviles */
+  }
+
+  .pqrs-hero__title {
+    font-size: 2.4rem;
+  }
+}
+
+/* ==================== PQRS FORM ==================== */
+
+.pqrs-form {
+  padding: 90px 20px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil de la app */
+}
+
+.pqrs-form__container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ==================== HEADER ==================== */
+
+.pqrs-form__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pqrs-form__badge {
+  display: inline-block;
+  padding: 8px 18px;
+  margin-bottom: 16px;
+  border-radius: var(--radius-full);
+  background: rgba(110, 200, 216, 0.08); /* Fondo Teal sutil unificado */
+  color: var(--color-brand-main); /* Cambiado a tu Teal Principal */
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.pqrs-form__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 16px;
+}
+
+.pqrs-form__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  max-width: 700px;
+  margin: auto;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-body);
+}
+
+/* ==================== CARD CONTENEDORA ==================== */
+
+.pqrs-form__card {
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+}
+
+/* ==================== LABEL ==================== */
+
+.pqrs-form__label,
+.pqrs-form__group label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-title); /* Fuerza Poppins para consistencia */
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+/* ==================== TYPES (SELECTORES SUPERIORES) ==================== */
+
+.pqrs-form__section {
+  margin-bottom: 40px;
+}
+
+.pqrs-form__types {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.pqrs-form__type {
+  padding: 20px 12px;
+  border-radius: var(--radius-md);
+  background: #f9fafb;
+  border: 1px solid var(--color-border-soft);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+/* Hover y estado activo migrados a la paleta Teal de Cedicaf */
+.pqrs-form__type:hover,
+.pqrs-form__type.active {
+  border-color: rgba(110, 200, 216, 0.4);
+  background: rgba(110, 200, 216, 0.08);
+  box-shadow: 0 8px 22px rgba(110, 200, 216, 0.12);
+}
+
+.pqrs-form__type img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.pqrs-form__type span {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  transition: color 0.3s ease;
+}
+
+.pqrs-form__type:hover span,
+.pqrs-form__type.active span {
+  color: var(--color-brand-main);
+}
+
+/* ==================== GRID FORMULARIO ==================== */
+
+.pqrs-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.pqrs-form__group.full {
+  grid-column: span 2;
+}
+
+/* ==================== INPUTS & ENFOQUES ==================== */
+
+.pqrs-form__group input,
+.pqrs-form__group textarea,
+.pqrs-form__group select {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-soft);
+  background: #f9fafb;
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.pqrs-form__group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Enfoques interactivos homogeneizados con el Teal Principal */
+.pqrs-form__group input:focus,
+.pqrs-form__group textarea:focus,
+.pqrs-form__group select:focus {
+  border-color: var(--color-brand-main);
+  background: var(--color-white);
+  box-shadow: 0 0 0 4px rgba(110, 200, 216, 0.12);
+}
+
+.pqrs-form__group textarea {
+  resize: none;
+}
+
+.pqrs-form__helper {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+}
+
+/* ==================== CHECKBOX ==================== */
+
+.pqrs-form__check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.pqrs-form__check label {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-text-body);
+}
+
+/* Accent-color para que el check nativo use el color de marca */
+.pqrs-form__check input[type="checkbox"] {
+  accent-color: var(--color-brand-main);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* ==================== ACTIONS (BOTONES) ==================== */
+
+.pqrs-form__actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 35px;
+}
+
+.pqrs-form__secondary {
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 1px solid var(--color-border-soft);
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.pqrs-form__secondary:hover {
+  background: rgba(110, 200, 216, 0.05);
+  border-color: rgba(110, 200, 216, 0.3);
+  color: var(--color-brand-main);
+}
+
+/* ==================== INFO (BLOQUE INFERIOR DESTACADO) ==================== */
+
+.pqrs-form__info {
+  margin-top: 35px;
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  
+  /* Gradiente e iluminación clínica adaptada */
+  background: linear-gradient(
+    135deg,
+    rgba(110, 200, 216, 0.08),
+    rgba(91, 191, 208, 0.04)
+  );
+  border: 1px solid rgba(110, 200, 216, 0.15);
+}
+
+.pqrs-form__info h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-brand-main); /* Cambiado a Teal Principal */
+  margin-bottom: 14px;
+}
+
+.pqrs-form__info p {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: var(--color-text-body);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 992px) {
+  .pqrs-form__types {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pqrs-form {
+    padding: 70px 16px;
+  }
+
+  .pqrs-form__card {
+    padding: 28px 22px;
+  }
+
+  .pqrs-form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pqrs-form__group.full {
+    grid-column: span 1;
+  }
+
+  .pqrs-form__actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .pqrs-form__types {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+/* ==================== PQRS CONTACT ==================== */
+
+.pqrs-contact {
+  position: relative;
+  width: 100%;
+  min-height: 78vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 20px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+/* ==================== OVERLAY (Mantiene consistencia clínica ligera) ==================== */
+
+.pqrs-contact__overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.88),
+    rgba(255, 255, 255, 0.75)
+  );
+
+  z-index: 1;
+}
+
+/* ==================== CONTAINER ==================== */
+
+.pqrs-contact__container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* ==================== CONTENT ==================== */
+
+.pqrs-contact__content {
+  max-width: 780px;
+  text-align: center;
+}
+
+/* ==================== BADGE (Unificado y limpio) ==================== */
+
+.pqrs-contact__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 22px;
+  margin-bottom: 26px;
+
+  border-radius: var(--radius-full);
+  background: rgba(110, 200, 216, 0.08); /* Fondo Teal sutil corporativo */
+  border: 1px solid rgba(110, 200, 216, 0.15);
+
+  color: var(--color-brand-main); /* Cambiado a tu Teal Principal */
+
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ==================== TITLE ==================== */
+
+.pqrs-contact__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-hero-title);
+  margin-bottom: 24px;
+}
+
+/* ==================== DESCRIPTION (Unificada a color de texto body) ==================== */
+
+.pqrs-contact__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  max-width: 720px;
+  margin: 0 auto 40px;
+  font-size: 1.12rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+}
+
+/* ==================== ACTIONS (BOTONES) ==================== */
+
+.pqrs-contact__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* BOTÓN PRINCIPAL (Migrado de azul oscuro a la energía Teal de tu marca) */
+.pqrs-contact .btn-primary-blue {
+  font-family: var(--font-title);
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-main) 0%,   /* #6EC8D8 o similar */
+    rgba(91, 191, 208, 0.9) 100%
+  );
+  border: none;
+  border-radius: var(--radius-full);
+
+  min-width: 210px;
+  height: 58px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  box-shadow: 0 14px 30px rgba(110, 200, 216, 0.3);
+  transition: var(--transition-base);
+  cursor: pointer;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pqrs-contact .btn-primary-blue:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px rgba(110, 200, 216, 0.4);
+  filter: brightness(1.05);
+}
+
+/* BOTÓN SECUNDARIO OUTLINE */
+.pqrs-contact .btn-secondary-outline {
+  font-family: var(--font-title);
+  min-width: 210px;
+  height: 58px;
+
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  border: 1px solid rgba(110, 200, 216, 0.3); /* Borde Teal sutil */
+
+  color: var(--color-text-dark); /* Color inicial neutral elegante */
+  font-size: 1rem;
+  font-weight: 700;
+
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+  transition: var(--transition-base);
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pqrs-contact .btn-secondary-outline:hover {
+  background: var(--color-white);
+  border-color: var(--color-brand-main);
+  color: var(--color-brand-main); /* Cambia a Teal en hover */
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(110, 200, 216, 0.15);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .pqrs-contact {
+    min-height: auto;
+    padding: 90px 16px;
+  }
+
+  .pqrs-contact__title {
+    font-size: 2.8rem;
+  }
+
+  .pqrs-contact__description {
+    font-size: 1rem;
+  }
+
+  .pqrs-contact__actions {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .pqrs-contact__actions a,
+  .pqrs-contact .btn-primary-blue,
+  .pqrs-contact .btn-secondary-outline {
+    width: 100%;
+    max-width: 320px;
+  }
+}

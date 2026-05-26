@@ -67,12 +67,12 @@ function Footer() {
           <ul className="contact-list">
             <li>
               <img src={telefono} alt="Teléfono" />
-              <a href="tel:+6063402333">+606 340 23 33</a>
+              <a href="tel:+608 6836182">+608 683 61 82</a>
             </li>
 
             <li>
               <img src={email} alt="Email" />
-              <a href="mailto:info@radiologos.co">info@radiologos.co</a>
+              <a href="mailto:info@diaxme.com">info@diaxme.com</a>
             </li>
 
             <li>
@@ -92,7 +92,7 @@ function Footer() {
 
       {/* bottom */}
       <div className="footer-bottom">
-        <p>© 2026 Cedicaf. Todos los derechos reservados.</p>
+        <p>© 2026 Diaxme. Todos los derechos reservados.</p>
       </div>
 
     </footer>

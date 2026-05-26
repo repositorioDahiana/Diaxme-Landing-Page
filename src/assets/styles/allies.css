@@ -1,0 +1,593 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== ALLIES HERO ==================== */
+
+.allies-hero {
+  position: relative;
+  width: 100%;
+  min-height: 72vh;
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* OVERLAY (Sincronizado con la suite de banners ligeros) */
+.allies-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 38%,
+    rgba(255, 255, 255, 0.55) 70%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+}
+
+/* CONTAINER (Homologado para evitar saltos bruscos entre páginas) */
+.allies-hero__container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+
+  padding: 120px 32px 60px; /* Aire superior para el Navbar y márgenes limpios */
+}
+
+/* CONTENT */
+.allies-hero__content {
+  max-width: 780px;
+}
+
+/* TITLE */
+.allies-hero__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.5rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-hero-title);
+  margin-bottom: 18px;
+}
+
+/* DESCRIPTION */
+.allies-hero__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+  margin-bottom: 34px;
+}
+
+/* ==================== STATS / CONVENIOS ==================== */
+
+.allies-hero__stats {
+  display: flex;
+  flex-wrap: nowrap; /* Conserva tus cajitas alineadas horizontalmente en desktop */
+  gap: 12px;
+} cutout-edge,
+
+/* CARD (Estructura flex horizontal: texto al frente del icono) */
+.allies-hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 300px; /* Mantiene tu ancho compacto fijo */
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+
+  background: var(--bg-card); /* Fondo blanco/translúcido unificado */
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+}
+
+.allies-hero__stat:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.25);
+}
+
+/* ICON */
+.allies-hero__stat img {
+  width: 36px; /* Ajuste sutil de respiro interno */
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* CONTENEDOR TEXTO */
+.allies-hero__text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL (Cambio de azul a texto oscuro para mayor elegancia clínica) */
+.allies-hero__label {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.3;
+  margin-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+/* Encendido interactivo en Teal de la marca durante el hover */
+.allies-hero__stat:hover .allies-hero__label {
+  color: var(--color-brand-main);
+}
+
+/* DESC */
+.allies-hero__desc {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--color-text-soft);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .allies-hero {
+    min-height: auto;
+  }
+
+  .allies-hero__container {
+    padding: 100px 20px 60px; /* Sincronizados los paddings laterales en móvil */
+  }
+
+  .allies-hero__stats {
+    flex-direction: column; /* Pasa a vertical de forma limpia */
+    gap: 12px;
+  }
+
+  .allies-hero__stat {
+    width: 100%; /* Expande al ancho completo en móviles */
+  }
+
+  .allies-hero__title {
+    font-size: 2.4rem;
+  }
+}
+
+/* ==================== ALLIES INTRO ==================== */
+
+.allies-intro {
+  position: relative;
+  padding: 110px 20px;
+
+  /* Gradiente limpio que conecta armoniosamente con el sistema de grillas */
+  background: linear-gradient(
+    180deg,
+    var(--color-white) 0%,
+    var(--bg-card-soft) 100%
+  );
+} cutout-edge,
+
+/* CONTAINER */
+.allies-intro__container {
+  width: 100%;
+  max-width: 950px;
+  margin: auto;
+  text-align: center;
+}
+
+/* DECORATIVE LINE (Actualizada a gradiente Teal dinámico corporativo) */
+.allies-intro .section-line-blue {
+  width: 90px;
+  height: 5px;
+  display: block;
+  margin: 0 auto 24px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--color-brand-main), rgba(110, 200, 216, 0.4));
+}
+
+/* TITLE */
+.allies-intro__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-hero-title);
+  margin-bottom: 22px;
+}
+
+/* DESCRIPTION */
+.allies-intro__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+  
+  max-width: 760px;
+  margin: 0 auto 38px;
+}
+
+/* BUTTON CONTROLLER */
+.allies-intro__button {
+  min-width: 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+}
+
+.allies-intro__button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-button-hover); /* Añade profundidad de marca al botón en hover */
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .allies-intro {
+    padding: 80px 16px; /* Sincronizado el aire lateral móvil */
+  }
+
+  .allies-intro__title {
+    font-size: 2.3rem;
+  }
+
+  .allies-intro__description {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+}
+
+/* ==================== ALLIES PREPAID ==================== */
+
+.allies-prepaid {
+  position: relative;
+  padding: 100px 20px;
+  background: var(--color-white);
+}
+
+/* CONTAINER */
+.allies-prepaid__container {
+  width: 100%;
+  max-width: 1320px;
+  margin: auto;
+}
+
+/* ==================== HEADER BANNER ==================== */
+
+.allies-prepaid__header {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  min-height: 220px;
+  
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  margin-bottom: 40px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Sombras suavizadas acordes al sistema de diseño global */
+  box-shadow: var(--shadow-card);
+} cutout-edge,
+
+/* OVERLAY (Migrado a una atmósfera translúcida médica basada en Teal) */
+.allies-prepaid__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(110, 200, 216, 0.15),
+    rgba(91, 191, 208, 0.08)
+  );
+}
+
+/* CONTENT: Texto al frente del icono */
+.allies-prepaid__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* HEADER ICON CONTAINER */
+.allies-prepaid__icon {
+  width: 78px;
+  height: 78px;
+  border-radius: 24px; /* Mantiene tu radio amplio decorativo de marca */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background: rgba(110, 200, 216, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(110, 200, 216, 0.2);
+}
+
+.allies-prepaid__icon img {
+  width: 42px; /* Proporción interna segura */
+  height: 42px;
+  object-fit: contain;
+}
+
+/* HEADER TITLE */
+.allies-prepaid__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-text-dark); /* Unificado para evitar el azul plano */
+  margin-bottom: 8px;
+}
+
+/* SUBTITLE */
+.allies-prepaid__subtitle {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+}
+
+/* ==================== GRID ==================== */
+
+.allies-prepaid__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* CARD LOGO INDIVIDUAL */
+.allies-prepaid__card {
+  padding: 34px 24px;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  transition: var(--transition-base);
+}
+
+.allies-prepaid__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.25);
+}
+
+/* CARD ICON / CONTENEDOR LOGO ALIADO */
+.allies-prepaid__card-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 22px;
+  border-radius: var(--radius-md); /* Sincronizado con tus radios del sistema */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(110, 200, 216, 0.06); /* Fondo Teal suave */
+  transition: var(--transition-fast);
+}
+
+.allies-prepaid__card:hover .allies-prepaid__card-icon {
+  background: rgba(110, 200, 216, 0.12);
+}
+
+.allies-prepaid__card-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* CARD TITLE */
+.allies-prepaid__card-title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 14px;
+  transition: color 0.3s ease;
+}
+
+.allies-prepaid__card:hover .allies-prepaid__card-title {
+  color: var(--color-brand-main); /* El nombre del aliado se enciende en Teal al hacer hover */
+}
+
+/* STATUS / SUBTEXT */
+.allies-prepaid__status {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-brand-main); /* Cambiado de azul plano a tu Teal corporativo */
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1100px) {
+  .allies-prepaid__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .allies-prepaid {
+    padding: 80px 16px; /* Sincronizado padding móvil lateral */
+  }
+
+  .allies-prepaid__header {
+    padding: 34px 24px;
+    min-height: auto;
+  }
+
+  .allies-prepaid__content {
+    flex-direction: column;
+    align-items: center; /* Centrado estético en móviles */
+    text-align: center;
+    gap: 16px;
+  }
+
+  .allies-prepaid__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .allies-prepaid__title {
+    font-size: 2rem;
+  }
+}

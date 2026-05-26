@@ -13,7 +13,7 @@ function CompanyHero() {
           </h1>
 
           <p className="company-hero__description">
-            ? Descripcion
+            ?? Texto
           </p>
 
           {/* Cambiado a la clase del botón borgoña premium */}

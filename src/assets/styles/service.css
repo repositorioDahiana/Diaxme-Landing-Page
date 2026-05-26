@@ -1,0 +1,654 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== SERVICES HERO ==================== */
+.services-hero {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.services-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 35%,
+    rgba(255, 255, 255, 0.55) 65%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+.services-hero__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px; /* Sincronizado con Careers y Specialists Hero */
+  margin: auto;
+  padding: 120px 32px 60px; /* Unificado para mantener la misma línea con el Navbar */
+  width: 100%;
+}
+
+.services-hero__content {
+  max-width: 850px;
+}
+
+/* BADGE INSIGNIA: Unificado con el estilo global de Cedicaf */
+.services-hero__badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-brand-main); /* Teal Principal */
+  background: rgba(110, 200, 216, 0.08); /* Fondo sutil unificado */
+  letter-spacing: 0.5px;
+}
+
+/* TITLE */
+.services-hero__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  color: var(--color-hero-title);
+}
+
+/* TEXT */
+.services-hero__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-hero);
+  margin-bottom: 28px;
+}
+
+/* CARDS GRID */
+.services-hero__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* Unificado con el ecosistema de grids de tu app */
+}
+
+/* MINI CARDS DE SERVICIOS */
+.services-card {
+  background: var(--bg-card); /* 255, 255, 255, 0.92 con opacidad premium */
+  border-radius: var(--radius-md); /* Subido a md para mayor suavidad visual */
+  border: 1px solid var(--color-border-soft);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+}
+
+.services-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+.services-card h3 {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-text-dark); /* Color oscuro base para legibilidad */
+}
+
+.services-card:hover h3 {
+  color: var(--color-brand-main); /* Cambio dinámico a Teal en Hover */
+  transition: color 0.3s ease;
+}
+
+.services-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* FLECHAS DE NAVEGACIÓN (SLIDER) */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  background: transparent !important; 
+  border: none;
+  box-shadow: none;
+  width: auto;    
+  height: auto;
+  font-size: 2.5rem;  
+  color: var(--color-brand-main); /* Pasado a tu Teal Principal */
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: var(--transition-fast);
+}
+
+/* Hover limpio hacia el Teal más oscuro */
+.nav-arrow:hover {
+  color: var(--color-brand-hover);
+  transform: translateY(-50%) scale(1.1); /* Efecto de crecimiento sutil */
+}
+
+/* Posiciones */
+.nav-arrow.left {
+  left: 20px;
+}
+
+.nav-arrow.right {
+  right: 20px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 992px) {
+  .services-hero__cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    min-height: auto;
+  }
+
+  .services-hero__container {
+    padding: 100px 20px 60px;
+  }
+
+  .services-hero__cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .services-card {
+    padding: 18px;
+  }
+  
+  /* Oculta las flechas en móviles para evitar que se pisen con el contenido */
+  .nav-arrow {
+    display: none;
+  }
+}
+
+/* ==================== SERVICES HIGHLIGHT ==================== */
+
+.services-highlight {
+  padding: 50px 20px 50px;
+  background: var(--bg-card-soft); /* Fondo unificado de tu app */
+}
+
+.services-highlight__container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* HEADER */
+.services-highlight__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-brand-main); /* Cambiado a tu Teal Principal */
+  background: rgba(110, 200, 216, 0.08); /* Fondo sutil Teal */
+  margin-bottom: 12px;
+}
+
+.services-highlight__title {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 14px;
+}
+
+.services-highlight__description {
+  max-width: 650px;
+  margin: 0 auto 50px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+/* GRID */
+.services-highlight__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* ==================== CARD BASE ==================== */
+
+.service-card {
+  padding: 28px 22px;
+  border-radius: var(--radius-md);
+
+  background: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+
+  box-shadow: var(--shadow-card);
+
+  text-align: left;
+
+  transition: var(--transition-base);
+
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+
+  height: 100%; /* 🔥 importante */
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* 🔵 CARD AZUL -> AHORA ADAPTADA A TU TEAL CORPORATIVO SUAVE */
+.service-card--blue {
+  background: linear-gradient(
+    135deg,
+    rgba(110, 200, 216, 0.12),
+    rgba(91, 191, 208, 0.08)
+  );
+  border: 1px solid rgba(110, 200, 216, 0.15);
+}
+
+/* ICONO */
+.service-card__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--bg-icon-brand); /* Cambiado a tu variable de icono Teal */
+  flex-shrink: 0;
+}
+
+.service-card__icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* CONTENT */
+.service-card__content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--color-text-dark);
+}
+
+.service-card__content p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-body);
+}
+
+/* ==================== FLIP CARD ==================== */
+
+.service-card-flip {
+  perspective: 1200px;
+  height: 100%;
+}
+
+.service-card-flip__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px; /* 🔥 respeta tamaño */
+
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+/* EFECTO */
+.service-card-flip:hover .service-card-flip__inner {
+  transform: rotateY(180deg);
+}
+
+/* CARAS (Mantenidas intactas para que la de atrás no se baje ni pierda su posición absoluta) */
+.service-card--front,
+.service-card--back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* FRONT */
+.service-card--front {
+  z-index: 2;
+}
+
+/* BACK -> ADAPTADA AL DEGRADADO SUAVE TEAL */
+.service-card--back {
+  transform: rotateY(180deg);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(110, 200, 216, 0.08),
+    rgba(91, 191, 208, 0.05)
+  );
+}
+
+/* IMAGEN PERFECTA */
+.service-card--back img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain; /* 🔥 NO corta */
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+  .services-highlight__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .services-highlight__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== SPECIALTIES ==================== */
+
+.specialties {
+  padding: 80px 20px; /* Unificado con el padding estándar de las secciones de tu app */
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil y limpio */
+}
+
+.specialties__container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* HEADER */
+.specialties__header {
+  margin-bottom: 50px;
+}
+
+.specialties__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 14px;
+}
+
+.specialties__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  max-width: 650px;
+  margin: auto;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+/* GRID PREMIUM */
+.specialties__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px; /* Unificado con vacancies, benefits y specialists-grid */
+}
+
+/* CARD ESPECIALIDAD */
+.specialty-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 24px 20px; /* Ajuste fino de padding interno para mejor aire */
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition-base);
+}
+
+.specialty-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* CONTENEDOR ICONO ADAPTADO */
+.specialty-card__icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 16px;
+  border-radius: var(--radius-full);
+  background: var(--bg-icon-brand); /* Fondo sutil unificado en Teal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.specialty-card:hover .specialty-card__icon {
+  background: rgba(110, 200, 216, 0.14); /* Encendido dinámico en Hover */
+  transform: scale(1.05);
+}
+
+.specialty-card__icon img {
+  width: 38px; /* Ajuste sutil para que respire limpio dentro del círculo */
+  height: 38px;
+  object-fit: contain;
+}
+
+/* TEXTOS INTERNOS */
+.specialty-card h3 {
+  font-family: var(--font-title); /* Fuerza Poppins para consistencia de marca */
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-text-dark);
+  transition: color 0.3s ease;
+}
+
+/* El título de la especialidad se enciende en Teal al pasar el mouse por la tarjeta */
+.specialty-card:hover h3 {
+  color: var(--color-brand-main);
+}
+
+.specialty-card p {
+  font-size: 0.85rem; /* Subido ligeramente para mejorar legibilidad clínica */
+  color: var(--color-text-body);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1024px) {
+  .specialties__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .specialties {
+    padding: 60px 20px;
+  }
+
+  .specialties__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .specialties__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

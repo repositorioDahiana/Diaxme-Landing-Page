@@ -1,0 +1,1001 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== PATIENT SECURITY HERO ==================== */
+
+.patient-security-hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* OVERLAY (Sincronizado con los otros Hero) */
+.patient-security-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 35%,
+    rgba(255, 255, 255, 0.55) 65%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+/* CONTAINER (Sincronizado a lo largo del ecosistema de tu app) */
+.patient-security-hero__container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+
+  padding: 120px 32px 60px; /* Ajustado para mantener la misma línea visual con el Navbar */
+}
+
+/* CONTENT */
+.patient-security-hero__content {
+  max-width: 700px;
+}
+
+/* TITLE */
+.patient-security-hero__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-hero-title);
+  margin-bottom: 18px;
+}
+
+/* DESCRIPTION */
+.patient-security-hero__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+  margin-bottom: 30px;
+}
+
+/* ==================== STATS / ACCESOS ==================== */
+
+.patient-security-hero__stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* CARD INDIVIDUAL (Texto directamente al frente del icono) */
+.patient-security-hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 18px;
+  border-radius: var(--radius-md); /* Subido a md para suavizar los bordes como tus otras cards */
+
+  background: var(--bg-card); /* 255, 255, 255, 0.92 */
+  border: 1px solid var(--color-border-soft);
+
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+}
+
+.patient-security-hero__stat:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* ICON */
+.patient-security-hero__stat img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* CONTENEDOR TEXTO */
+.patient-security-hero__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+/* TEXT LABEL (Cambiado de Azul a Gris Oscuro para un toque clínico más elegante) */
+.patient-security-hero__label {
+  display: block;
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  transition: color 0.3s ease;
+}
+
+/* Encendido interactivo en Teal al pasar el mouse sobre la tarjetita */
+.patient-security-hero__stat:hover .patient-security-hero__label {
+  color: var(--color-brand-main);
+}
+
+/* DESC */
+.patient-security-hero__desc {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .patient-security-hero {
+    min-height: auto;
+  }
+
+  .patient-security-hero__container {
+    padding: 100px 20px 60px; /* Sincronizado el padding lateral móvil */
+  }
+
+  .patient-security-hero__stats {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .patient-security-hero__stat {
+    width: 100%;
+  }
+}
+
+/* ==================== PATIENT HUMANIZATION ==================== */
+
+.patient-humanization {
+  padding: 90px 20px;
+  background: #f8fafc;
+}
+
+.patient-humanization__container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ==================== HEADER ==================== */
+
+.patient-humanization__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.patient-humanization__badge {
+  display: inline-block;
+
+  padding: 8px 18px;
+  margin-bottom: 16px;
+
+  border-radius: var(--radius-full);
+
+  background: rgba(10, 78, 163, 0.08);
+
+  color: var(--color-blue-main);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.patient-humanization__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+
+  margin-bottom: 18px;
+}
+
+.patient-humanization__description {
+  max-width: 850px;
+  margin: auto;
+
+  font-size: 1rem;
+  line-height: 1.9;
+
+  color: var(--color-text-body);
+}
+
+/* ==================== GRID ==================== */
+
+.patient-humanization__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+
+  margin-bottom: 50px;
+}
+
+/* ==================== CARD ==================== */
+/* ==================== CARD ==================== */
+
+.patient-humanization__card {
+  padding: 30px 24px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--color-border-soft);
+
+  box-shadow: var(--shadow-card);
+
+  transition: var(--transition-base);
+}
+
+.patient-humanization__card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* TOP */
+
+.patient-humanization__top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-bottom: 22px;
+}
+
+/* ICON */
+
+.patient-humanization__icon {
+  width: 68px;
+  height: 68px;
+
+  border-radius: var(--radius-sm);
+
+  background: var(--bg-icon-blue);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.patient-humanization__icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* TITLE */
+
+.patient-humanization__top h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+
+  color: var(--color-text-dark);
+}
+
+/* DESCRIPTION */
+
+.patient-humanization__card p {
+  font-size: 0.94rem;
+  line-height: 1.9;
+
+  color: var(--color-text-body);
+}
+/* ==================== COMMITMENT ==================== */
+
+.patient-humanization__commitment {
+  padding: 38px;
+
+  border-radius: var(--radius-lg);
+
+  background: linear-gradient(
+    135deg,
+    rgba(10, 78, 163, 0.08),
+    rgba(37, 99, 235, 0.05)
+  );
+
+  border: 1px solid rgba(10, 78, 163, 0.12);
+
+  text-align: left;
+
+  box-shadow: var(--shadow-card);
+}
+
+/* TITLE */
+
+.patient-humanization__commitment h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+
+  margin-bottom: 16px;
+
+  color: var(--color-blue-main);
+}
+
+/* TEXT */
+
+.patient-humanization__commitment p {
+  max-width: 1200px;
+
+  font-size: 1rem;
+  line-height: 1.9;
+
+  color: var(--color-text-body);
+}
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 992px) {
+  .patient-humanization__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .patient-humanization {
+    padding: 70px 16px;
+  }
+
+  .patient-humanization__commitment {
+    padding: 30px 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .patient-humanization__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-humanization__card {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+/* ==================== PATIENT POLICY ==================== */
+
+.patient-policy {
+  padding: 90px 20px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil de la app */
+}
+
+.patient-policy__container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ==================== HEADER ==================== */
+
+.patient-policy__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.patient-policy__badge {
+  display: inline-block;
+  padding: 8px 18px;
+  margin-bottom: 16px;
+  border-radius: var(--radius-full);
+  background: rgba(110, 200, 216, 0.08); /* Fondo Teal sutil unificado */
+  color: var(--color-brand-main); /* Cambiado a tu Teal Principal */
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.patient-policy__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 18px;
+}
+
+.patient-policy__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  max-width: 760px;
+  margin: auto;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+}
+
+/* ==================== MAIN CARD (POLÍTICA GENERAL) ==================== */
+
+.patient-policy__main-card {
+  padding: 36px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card); /* 255, 255, 255, 0.92 */
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 45px;
+}
+
+/* Estructura original intacta: texto al frente del icono */
+.patient-policy__main-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.patient-policy__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-icon-brand); /* Cambiado a tu variable de icono Teal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.patient-policy__icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.patient-policy__main-top h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-brand-main); /* Cambiado de Azul a Teal Principal */
+}
+
+.patient-policy__main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.patient-policy__main-content p {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.98rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+}
+
+/* ==================== GRID PRINCIPAL ==================== */
+
+.patient-policy__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Simplificado (eliminada la duplicidad que traías) */
+  gap: 24px;
+}
+
+/* ==================== CARD INDIVIDUAL ==================== */
+
+.patient-policy__card {
+  padding: 28px 24px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.patient-policy__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* Estructura original intacta: texto al frente del icono */
+.patient-policy__card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.patient-policy__card-icon {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-icon-brand); /* Cambiado a tu variable de icono Teal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+/* El fondo del icono reacciona sutilmente cuando haces hover en la card */
+.patient-policy__card:hover .patient-policy__card-icon {
+  background: rgba(110, 200, 216, 0.15);
+}
+
+.patient-policy__card-icon img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.patient-policy__card h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.5;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Toque interactivo premium: el título pasa a Teal en hover */
+.patient-policy__card:hover h3 {
+  color: var(--color-brand-main);
+}
+
+.patient-policy__card p {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 992px) {
+  .patient-policy__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .patient-policy {
+    padding: 70px 16px;
+  }
+
+  .patient-policy__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-policy__main-card {
+    padding: 28px 22px;
+  }
+
+  .patient-policy__main-top {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  /* En pantallas muy compactas, los elementos se apilan hacia abajo limpiamente */
+  .patient-policy__main-top,
+  .patient-policy__card-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* ==================== PATIENT PARTICIPATION ==================== */
+
+.patient-participation {
+  padding: 90px 20px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil de la app */
+}
+
+.patient-participation__container {
+  max-width: 1250px;
+  margin: auto;
+}
+
+/* ==================== HEADER ==================== */
+
+.patient-participation__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.patient-participation__badge {
+  display: inline-block;
+  padding: 8px 18px;
+  margin-bottom: 16px;
+  border-radius: var(--radius-full);
+  background: rgba(110, 200, 216, 0.08); /* Fondo Teal sutil unificado */
+  color: var(--color-brand-main); /* Cambiado a tu Teal Principal */
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.patient-participation__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 18px;
+}
+
+.patient-participation__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  max-width: 760px;
+  margin: auto;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+}
+
+/* ==================== MAIN CARD (SOCIOS/CANALES PRINCIPALES) ==================== */
+
+.patient-participation__main-card {
+  padding: 38px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card); /* 255, 255, 255, 0.92 */
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 45px;
+}
+
+/* Estructura original intacta: texto al frente del icono */
+.patient-participation__main-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.patient-participation__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-icon-brand); /* Cambiado a tu variable de icono Teal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.patient-participation__icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.patient-participation__main-top h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-brand-main); /* Cambiado de Azul a Teal Principal */
+}
+
+.patient-participation__content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.patient-participation__content p {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.98rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+}
+
+/* ==================== GRID PRINCIPAL ==================== */
+
+.patient-participation__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-bottom: 35px;
+}
+
+/* ==================== CARD INDIVIDUAL ==================== */
+
+.patient-participation__card {
+  padding: 28px 22px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ajustado para dar armonía al centrado que usas abajo */
+}
+
+.patient-participation__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* ICON */
+.patient-participation__card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-icon-brand); /* Cambiado a tu variable de icono Teal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  transition: var(--transition-fast);
+}
+
+/* El fondo del icono reacciona sutilmente cuando haces hover en la card */
+.patient-participation__card:hover .patient-participation__card-icon {
+  background: rgba(110, 200, 216, 0.15);
+}
+
+.patient-participation__card-icon img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* CONTENT */
+.patient-participation__card h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0 auto 14px;
+  text-align: center;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+/* Toque interactivo de marca en hover */
+.patient-participation__card:hover h3 {
+  color: var(--color-brand-main);
+}
+
+.patient-participation__card p {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.92rem;
+  line-height: 1.8;
+  text-align: center;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+/* ==================== HIGHLIGHT (BLOQUE DESTACADO INFERIOR) ==================== */
+
+/* Estructura flex horizontal intacta: contenido al frente/lado del icono */
+.patient-participation__highlight {
+  padding: 34px;
+  border-radius: var(--radius-lg);
+  
+  /* Gradiente premium alineado a la paleta de Cedicaf */
+  background: linear-gradient(
+    135deg,
+    rgba(110, 200, 216, 0.08),
+    rgba(91, 191, 208, 0.04)
+  );
+  border: 1px solid rgba(110, 200, 216, 0.15);
+  
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  box-shadow: var(--shadow-card);
+}
+
+.patient-participation__highlight-icon {
+  width: 78px;
+  height: 78px;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.patient-participation__highlight-icon img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.patient-participation__highlight-content h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-brand-main); /* Cambiado a Teal Principal */
+  margin-bottom: 14px;
+}
+
+.patient-participation__highlight-content p {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.98rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1100px) {
+  .patient-participation__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .patient-participation {
+    padding: 70px 16px;
+  }
+
+  .patient-participation__main-card,
+  .patient-participation__highlight {
+    padding: 28px 22px;
+  }
+
+  /* Colapsa horizontal a vertical en móviles conservando simetría */
+  .patient-participation__highlight {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .patient-participation__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+

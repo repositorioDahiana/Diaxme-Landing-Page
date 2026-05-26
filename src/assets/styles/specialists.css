@@ -1,0 +1,432 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== SPECIALISTS HERO ==================== */
+.specialists-hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Overlay elegante unificado */
+.specialists-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 35%,
+    rgba(255, 255, 255, 0.55) 65%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+/* Contenedor con alineación limpia */
+.specialists-hero__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px; /* Unificado con el ancho del Careers Hero */
+  margin: 0 auto;
+  padding: 120px 32px 60px; /* Consistencia en padding superior para el navbar */
+  width: 100%;
+}
+
+.specialists-hero__content {
+  max-width: 600px;
+}
+
+/* Título con la tipografía corporativa 'Poppins' mapeada en el home */
+.specialists-hero__title {
+  font-family: var(--font-title);
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  color: var(--color-hero-title); /* Teal Principal Cedicaf */
+}
+
+/* Descripción */
+.specialists-hero__description {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-hero);
+  margin-bottom: 28px;
+}
+
+/* Contenedor de acciones listo para heredar tus .btn-base o .btn-primary-brand */
+.specialists-hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .specialists-hero {
+    min-height: auto;
+  }
+
+  .specialists-hero__container {
+    padding: 100px 20px 60px;
+  }
+
+  .specialists-hero__title {
+    font-size: 2.2rem;
+  }
+
+  .specialists-hero__description {
+    font-size: 0.95rem;
+  }
+
+  .specialists-hero__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Fuerza a los botones hijos (sean tag 'a' o 'button') a tomar el ancho completo en móvil */
+  .specialists-hero__actions > * {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+}
+
+/* ==================== SPECIALISTS GRID ==================== */
+
+.specialists-grid {
+  padding: 80px 20px;
+  background: var(--bg-card-soft); /* Unificado con el fondo de Vacancies y Benefits (Gris tecnológico sutil) */
+}
+
+.specialists-grid__container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HEADER */
+.specialists-grid__header {
+  text-align: center;
+  margin-bottom: 50px; /* Unificado con vacancies */
+}
+
+/* INSIGNIA: Sincronizada con .vacancies__badge y .apply__badge */
+.specialists-grid__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(110, 200, 216, 0.08); /* Fondo Teal muy suave */
+  color: var(--color-brand-main); /* Teal Principal */
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.specialists-grid__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--color-hero-title);
+}
+
+.specialists-grid__description {
+  font-family: var(--font-body);
+  color: var(--color-text-body);
+  max-width: 650px;
+  margin: auto;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* GRID PREMIUM */
+.specialists-grid__content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Estructura base limpia de 4 columnas para desktop */
+  gap: 25px; /* Unificado con el gap de benefits */
+}
+
+/* CARD ESPECIALISTA */
+.specialist-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-base);
+}
+
+.specialist-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* CONTENEDOR DE IMAGEN */
+.specialist-card__image {
+  width: 100%;
+  height: 240px; /* Un poco más de presencia para fotos médicas profesionales */
+  overflow: hidden;
+  background-color: var(--color-brand-light); /* Fondo de carga sutil */
+}
+
+.specialist-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.specialist-card:hover .specialist-card__image img {
+  transform: scale(1.04); /* Efecto zoom premium muy sutil */
+}
+
+/* INFO */
+.specialist-card__info {
+  padding: 24px 20px; /* Espaciado más aireado y elegante */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.specialist-card__name {
+  font-family: var(--font-title); /* Fuerza Poppins en los nombres médicos */
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 6px;
+}
+
+/* Especialidad médica en Teal destacado */
+.specialist-card__specialty {
+  color: var(--color-brand-main); 
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.specialist-card__sub {
+  font-size: 0.85rem;
+  color: var(--color-text-soft); /* Gris intermedio tecnológico */
+  margin-bottom: 8px;
+}
+
+/* Experiencia / Registro */
+.specialist-card__exp {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-body);
+  margin-bottom: 16px;
+  margin-top: auto; /* Empuja las etiquetas siempre al fondo si los textos varían */
+}
+
+/* TAGS / ATRIBUTOS DEL MÉDICO */
+.specialist-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-soft); /* Separador sutil */
+}
+
+.specialist-card__tags span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--bg-icon-brand); /* Fondo sutil para iconos/tags en Teal */
+  color: var(--color-brand-main);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1100px) {
+  .specialists-grid__content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .specialists-grid {
+    padding: 60px 20px;
+  }
+
+  .specialists-grid__content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .specialist-card__image {
+    height: 200px;
+  }
+  
+  .specialist-card__info {
+    padding: 18px 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .specialists-grid__content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .specialist-card__image {
+    height: 250px; /* Recupera buena proporción en layout de una sola columna */
+  }
+}

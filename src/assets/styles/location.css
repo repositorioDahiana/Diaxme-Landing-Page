@@ -1,0 +1,825 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== LOCATIONS HERO ==================== */
+
+.locations-hero {
+  position: relative;
+  width: 100%;
+  min-height: 72vh;
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* OVERLAY (Sincronizado con la suite de banners ligeros) */
+.locations-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 38%,
+    rgba(255, 255, 255, 0.55) 70%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+}
+
+/* CONTAINER (Homologado para evitar saltos bruscos entre páginas) */
+.locations-hero__container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+
+  padding: 120px 32px 60px; /* Margen superior ideal para el Navbar */
+}
+
+/* CONTENT */
+.locations-hero__content {
+  max-width: 780px;
+}
+
+/* TITLE */
+.locations-hero__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.5rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-hero-title);
+  margin-bottom: 18px;
+} cutout-edge,
+
+/* DESCRIPTION */
+.locations-hero__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+  margin-bottom: 34px;
+}
+
+/* ==================== STATS / COMPONENTES SEDES ==================== */
+
+.locations-hero__stats {
+  display: flex;
+  flex-wrap: nowrap; /* Conserva tus cajitas alineadas horizontalmente en desktop */
+  gap: 12px;
+}
+
+/* CARD (Estructura flex horizontal: texto al frente del icono) */
+.locations-hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 240px; /* Mantiene tu ancho compacto original */
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+
+  background: var(--bg-card); /* Fondo blanco/translúcido unificado */
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+}
+
+.locations-hero__stat:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.25);
+}
+
+/* ICON */
+.locations-hero__stat img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* CONTENEDOR TEXTO */
+.locations-hero__text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL (Cambio de azul a texto oscuro neutro para elegancia clínica) */
+.locations-hero__label {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.3;
+  margin-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+/* Encendido interactivo en Teal de la marca durante el hover */
+.locations-hero__stat:hover .locations-hero__label {
+  color: var(--color-brand-main);
+}
+
+/* DESC */
+.locations-hero__desc {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--color-text-soft);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .locations-hero {
+    min-height: auto;
+  }
+
+  .locations-hero__container {
+    padding: 100px 20px 60px; /* Sincronizados los paddings laterales en móvil */
+  }
+
+  .locations-hero__stats {
+    flex-direction: column; /* Pasa a vertical de forma limpia */
+    gap: 12px;
+  }
+
+  .locations-hero__stat {
+    width: 100%; /* Expande al ancho completo en móviles */
+  }
+
+  .locations-hero__title {
+    font-size: 2.4rem;
+  }
+}
+
+/* ==================== LOCATIONS PREVIEW ==================== */
+
+.locations-preview {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px; /* Ajuste de aire superior equilibrado */
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)),
+    linear-gradient(to right, var(--bg-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-grid-line) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+}
+
+.locations-preview__container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.locations-preview__header {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+/* BADGE DE CATEGORÍA */
+.locations-preview__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(110, 200, 216, 0.25); /* Cambiado a Teal */
+  border-radius: var(--radius-full);
+  background: rgba(110, 200, 216, 0.06);
+  color: var(--color-brand-main); /* Cambiado a Teal Principal */
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.locations-preview__badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-brand-main);
+} cutout-edge,
+
+/* TITLE */
+.locations-preview__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  margin-bottom: 14px;
+  font-size: clamp(2.3rem, 5vw, 3.6rem); /* Ajuste de escala tipográfica superior */
+  line-height: 1.12;
+  font-weight: 700;
+  color: var(--color-hero-title);
+}
+
+.locations-preview__title span {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* SEPARADOR DE SECCIÓN */
+.locations-preview__line {
+  width: 84px;
+  height: 4px;
+  margin: 0 auto 18px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--color-brand-main), rgba(110, 200, 216, 0.4));
+}
+
+/* DESCRIPTION */
+.locations-preview__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  max-width: 680px;
+  margin: 0 auto 32px;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+/* TABS CONTROLLER (Filtros por Municipio / Zona) */
+.locations-preview__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.locations-preview__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 11px 20px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 14px;
+  text-decoration: none;
+  font-family: var(--font-title);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text-body);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+  cursor: pointer;
+}
+
+.locations-preview__tab:hover,
+.locations-preview__tab--active {
+  color: var(--color-white);
+  background: var(--gradient-button); /* Usa el gradiente de acción unificado */
+  border-color: transparent;
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* ==================== GRID DE TARJETAS ==================== */
+
+.locations-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* CARD INDIVIDUAL */
+.locations-preview__card {
+  overflow: hidden;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.locations-preview__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(110, 200, 216, 0.3);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.locations-preview__card--featured {
+  border-color: rgba(110, 200, 216, 0.4);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* THUMBNAIL WRAPPER */
+.locations-preview__image-wrapper {
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+  background: var(--bg-card-soft);
+}
+
+.locations-preview__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.locations-preview__card:hover .locations-preview__image {
+  transform: scale(1.05); /* Efecto zoom refinado al pasar el cursor */
+}
+
+/* CONTENT BLOCK */
+.locations-preview__content {
+  padding: 18px;
+}
+
+/* CARD TITLE */
+.locations-preview__card-title {
+  font-family: var(--font-title);
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  transition: color 0.3s ease;
+}
+
+.locations-preview__card:hover .locations-preview__card-title {
+  color: var(--color-brand-main); /* El título se enciende en Teal en hover */
+}
+
+/* ADDRESS (Estructura flex: texto al frente del icono) */
+.locations-preview__address {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+}
+
+.locations-preview__meta-icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* SCHEDULE BOX (Caja informativa clínica unificada) */
+.locations-preview__schedule-box {
+  padding: 12px;
+  border: 1px solid rgba(110, 200, 216, 0.2);
+  border-radius: var(--radius-sm);
+  background: rgba(110, 200, 216, 0.04); /* Tono suave Teal de fondo */
+}
+
+.locations-preview__schedule-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: var(--color-brand-main); /* Cambiado a tu Teal Principal */
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.locations-preview__schedule-box p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--color-text-body);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1200px) {
+  .locations-preview__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .locations-preview {
+    padding: 60px 16px;
+  }
+
+  .locations-preview__header {
+    margin-bottom: 32px;
+  }
+
+  .locations-preview__description {
+    font-size: 0.95rem;
+  }
+
+  .locations-preview__tab {
+    min-width: 92px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+  }
+
+  .locations-preview__grid {
+    gap: 16px;
+  }
+
+  .locations-preview__image-wrapper {
+    height: 160px;
+  }
+
+  .locations-preview__card-title {
+    font-size: 1.05rem;
+  }
+
+  .locations-preview__address {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .locations-preview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .locations-preview__title {
+    font-size: 1.9rem;
+  }
+
+  .locations-preview__tabs {
+    gap: 8px;
+  }
+
+  .locations-preview__tab {
+    flex: 1;
+    min-width: unset;
+  }
+}
+
+/* ==================== LOCATIONS MODAL ==================== */
+
+.locations-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(6px);
+}
+
+/* CONTENT BOX */
+.locations-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  max-height: 82vh;
+  overflow-y: auto;
+  border-radius: 24px; /* Mantiene tu radio amplio estético para modales */
+  background: var(--color-white);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  animation: modalFade 0.28s ease;
+} cutout-edge,
+
+/* BANNER IMAGE */
+.locations-modal__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: var(--bg-card-soft);
+}
+
+/* BODY CONTENT */
+.locations-modal__body {
+  padding: 22px 24px 24px;
+}
+
+/* CLOSE BUTTON */
+.locations-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-card);
+  
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+}
+
+.locations-modal__close:hover {
+  transform: rotate(90deg);
+  color: var(--color-brand-main); /* El botón de cerrar enciende en Teal */
+}
+
+/* SEDE TITLE */
+.locations-modal__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-hero-title);
+  margin-bottom: 14px;
+}
+
+/* ADDRESS LAYOUT (Texto perfectamente al frente del icono) */
+.locations-modal__address {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 22px;
+  
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-text-body);
+}
+
+.locations-modal__address img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* STUDIES / SERVICIOS DISPONIBLES */
+.locations-modal__studies h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-brand-main); /* Sincronizado a tu Teal Principal */
+  margin-bottom: 14px;
+}
+
+/* GRID DE EXÁMENES */
+.locations-modal__studies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+/* ITEM INDIVIDUAL (Estructura flex horizontal limpia) */
+.locations-modal__study {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  
+  /* Entorno clínico suave adaptado a la marca */
+  background: rgba(110, 200, 216, 0.05);
+  border: 1px solid rgba(110, 200, 216, 0.1);
+  transition: var(--transition-fast);
+}
+
+.locations-modal__study:hover {
+  background: rgba(110, 200, 216, 0.08);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+.locations-modal__study img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.locations-modal__study span {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-dark); /* Mayor contraste de lectura clínica */
+}
+
+/* ACTION BUTTONS WRAPPER */
+.locations-modal__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.locations-modal__actions a {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  font-family: var(--font-title);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-base);
+}
+
+/* ==================== ANIMATION ==================== */
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .locations-modal__content {
+    max-width: 100%;
+    max-height: 90vh;
+  }
+
+  .locations-modal__image {
+    height: 150px;
+  }
+
+  .locations-modal__body {
+    padding: 20px;
+  }
+
+  .locations-modal__title {
+    font-size: 1.25rem;
+  }
+
+  .locations-modal__studies-grid {
+    grid-template-columns: 1fr; /* Lista a una sola columna en móviles */
+    gap: 8px;
+  }
+
+  .locations-modal__actions {
+    flex-direction: column; /* Botones apilados verticalmente en pantallas chicas */
+    gap: 10px;
+  }
+}

@@ -25,7 +25,7 @@ function AboutHero() {
           </h1>
 
           <p className="about-hero__description">
-            ?
+            ?? Texto
           </p>
         </div>
 

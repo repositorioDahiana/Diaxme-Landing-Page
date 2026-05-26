@@ -1,0 +1,560 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== PATIENT HERO ==================== */
+
+.patient-hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* OVERLAY ELEGANTE */
+.patient-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 35%,
+    rgba(255, 255, 255, 0.55) 65%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+/* CONTAINER (Sincronizado con Careers, Specialists y Services Hero) */
+.patient-hero__container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+
+  padding: 120px 32px 60px; /* Sincronizado para evitar saltos visuales con el Navbar */
+}
+
+/* CONTENT */
+.patient-hero__content {
+  max-width: 600px;
+}
+
+/* TITLE */
+.patient-hero__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-hero-title);
+  margin-bottom: 18px;
+}
+
+/* DESCRIPTION */
+.patient-hero__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+  margin-bottom: 30px;
+}
+
+/* ==================== STATS ==================== */
+
+.patient-hero__stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* CARD ESTADÍSTICA / ACCESO */
+.patient-hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 16px 20px;
+  border-radius: var(--radius-md); /* Subido a md para mayor suavidad visual */
+
+  background: var(--bg-card); /* 255, 255, 255, 0.92 */
+  border: 1px solid var(--color-border-soft);
+
+  box-shadow: var(--shadow-card);
+
+  transition: var(--transition-base);
+}
+
+.patient-hero__stat:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* ICON */
+.patient-hero__stat img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+/* NUMBER (Cambiado de Azul a tu Teal Principal) */
+.patient-hero__number {
+  font-family: var(--font-title); /* Fuerza Poppins para los números gigantes */
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-brand-main); /* Cambiado al Teal Principal */
+  line-height: 1;
+}
+
+/* CONTENEDOR TEXTO */
+.patient-hero__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+/* TITULO INTERNO (Cambiado de Azul a Gris Oscuro de texto para mayor elegancia) */
+.patient-hero__cards {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-dark); /* Texto oscuro base para mantener balance clínico */
+  transition: color 0.3s ease;
+}
+
+/* Al hacer hover en la tarjetita, el texto interno se ilumina sutilmente en Teal */
+.patient-hero__stat:hover .patient-hero__cards {
+  color: var(--color-brand-main);
+}
+
+/* DESCRIPCIÓN */
+.patient-hero__desc {
+  font-size: 0.8rem;
+  color: var(--color-text-soft); /* Gris tecnológico intermedio */
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .patient-hero {
+    min-height: auto;
+  }
+
+  .patient-hero__container {
+    padding: 100px 20px 60px;
+  }
+
+  .patient-hero__stats {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .patient-hero__stat {
+    width: 100%;
+  }
+}
+
+/* ==================== PATIENT RIGHTS ==================== */
+
+.patient-rights {
+  padding: 90px 20px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil de la app */
+}
+
+.patient-rights__container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HEADER */
+.patient-rights__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.patient-rights__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-brand-main); /* Cambiado a tu Teal Principal */
+  background: rgba(110, 200, 216, 0.08); /* Fondo Teal sutil unificado */
+  margin-bottom: 12px;
+}
+
+.patient-rights__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-hero-title);
+}
+
+.patient-rights__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  max-width: 650px;
+  margin: auto;
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+}
+
+/* GRID */
+.patient-rights__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* CARD (Estructura original intacta: texto al frente del icono) */
+.patient-rights__card {
+  display: flex;
+  gap: 14px;
+  padding: 22px;
+  border-radius: var(--radius-md);
+
+  background: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+  align-items: flex-start; /* Asegura alineación limpia arriba si el texto es largo */
+}
+
+.patient-rights__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* ICON */
+.patient-rights__icon {
+  width: 55px;
+  height: 55px;
+  border-radius: var(--radius-sm);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--bg-icon-brand); /* Cambiado a tu fondo de icono Teal unificado */
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+/* El contenedor del icono se ilumina un poco más en hover */
+.patient-rights__card:hover .patient-rights__icon {
+  background: rgba(110, 200, 216, 0.15);
+}
+
+.patient-rights__icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* CONTENT */
+.patient-rights__content h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--color-text-dark);
+  transition: color 0.3s ease;
+}
+
+/* El título del derecho/deber se enciende en Teal en hover */
+.patient-rights__card:hover .patient-rights__content h3 {
+  color: var(--color-brand-main);
+}
+
+.patient-rights__content p {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-body);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .patient-rights__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .patient-rights__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== PATIENT DUTIES ==================== */
+
+.patient-duties {
+  padding: 80px 20px;
+  background: var(--color-white); /* Forzado a tu variable de fondo blanco */
+}
+
+.patient-duties__container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* HEADER */
+.patient-duties__badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-brand-main); /* Cambiado a tu Teal Principal */
+  background: rgba(110, 200, 216, 0.08); /* Fondo Teal sutil unificado */
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
+}
+
+.patient-duties__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 10px;
+}
+
+.patient-duties__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  max-width: 600px;
+  margin: 0 auto 50px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+/* GRID */
+.patient-duties__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 30px;
+}
+
+/* ITEM (Estructura original intacta: texto directamente al frente del icono) */
+.patient-duties__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 16px 18px;
+  border-radius: var(--radius-md); /* Subido a md para homologar las tarjetas de la app */
+
+  background: var(--bg-card); /* 255, 255, 255, 0.92 */
+  border: 1px solid var(--color-border-soft);
+
+  transition: var(--transition-base);
+}
+
+.patient-duties__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* ICON */
+.patient-duties__icon {
+  min-width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px; /* Mantiene tus esquinas personalizadas de 12px */
+  background: var(--bg-icon-brand); /* Cambiado a tu variable de icono Teal */
+  transition: var(--transition-fast);
+}
+
+/* El fondo del icono reacciona sutilmente cuando se hace hover en la fila */
+.patient-duties__item:hover .patient-duties__icon {
+  background: rgba(110, 200, 216, 0.15);
+}
+
+.patient-duties__icon img {
+  width: 36px; /* Ajuste milimétrico para que respire excelente en los 52px de alto */
+  height: 36px;
+  object-fit: contain;
+}
+
+/* TEXT */
+.patient-duties__text {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  text-align: left;
+  transition: color 0.3s ease;
+}
+
+/* Un toque interactivo premium: el texto de la obligación cambia a color marca en hover */
+.patient-duties__item:hover .patient-duties__text {
+  color: var(--color-brand-main);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .patient-duties__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

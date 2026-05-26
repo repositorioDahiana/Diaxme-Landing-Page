@@ -1,0 +1,772 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== PPSS HERO ==================== */
+
+.ppss-hero {
+  position: relative;
+  width: 100%;
+  min-height: 72vh;
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+} cutout-edge,
+
+/* OVERLAY (Máscara sincronizada con la suite de banners) */
+.ppss-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 40%,
+    rgba(255, 255, 255, 0.55) 72%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+}
+
+/* CONTAINER (Homologado con la grilla y altura del ecosistema) */
+.ppss-hero__container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  
+  padding: 120px 32px 60px; /* Ajustado para dejar el espacio del Navbar intacto */
+}
+
+/* CONTENT */
+.ppss-hero__content {
+  max-width: 860px;
+}
+
+/* TITLE */
+.ppss-hero__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 22px;
+}
+
+/* DESCRIPTION */
+.ppss-hero__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: var(--color-text-body);
+  margin-bottom: 40px;
+}
+
+/* CARDS WRAPPER */
+.ppss-hero__cards {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  flex-wrap: nowrap; /* Mantiene la fila horizontal en desktop */
+}
+
+/* CARD INDIVIDUAL (Estructura flex horizontal: texto al frente del icono) */
+.ppss-hero__card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+
+  padding: 14px 16px;
+  border-radius: var(--radius-md); /* Subido a md para suavizar los bordes como los otros bloques */
+
+  background: var(--bg-card); /* Sincronizado a tu fondo de tarjeta unificado */
+  border: 1px solid var(--color-border-soft);
+  backdrop-filter: blur(10px);
+
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+}
+
+.ppss-hero__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.25);
+}
+
+/* ICON CONTAINER */
+.ppss-hero__card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm); /* Unificado a los radios del sistema */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background: rgba(110, 200, 216, 0.08); /* Fondo Teal translúcido suave */
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+/* El fondo del icono se ilumina un toque más en hover */
+.ppss-hero__card:hover .ppss-hero__card-icon {
+  background: rgba(110, 200, 216, 0.15);
+}
+
+.ppss-hero__card-icon img {
+  width: 24px; /* Ajustado el tamaño de imagen relativo para no desbordar el contenedor */
+  height: 24px;
+  object-fit: contain;
+}
+
+/* CARD CONTENT */
+.ppss-hero__card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ppss-hero__card-content h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text-dark); /* Color oscuro base para consistencia visual */
+  margin-bottom: 2px;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+/* El título de la cajita se enciende en Teal en hover */
+.ppss-hero__card:hover .ppss-hero__card-content h3 {
+  color: var(--color-brand-main);
+}
+
+.ppss-hero__card-content p {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--color-text-soft);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 992px) {
+  .ppss-hero__cards {
+    flex-direction: column; /* Colapsa verticalmente en tablets y pantallas medianas */
+    gap: 12px;
+  }
+
+  .ppss-hero__card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ppss-hero__container {
+    padding: 100px 20px 60px; /* Sincronizado el padding lateral móvil */
+  }
+
+  .ppss-hero__title {
+    font-size: 2.4rem;
+  }
+
+  .ppss-hero__description {
+    font-size: 1rem;
+  }
+}
+
+/* ==================== PPSS AXES ==================== */
+
+.ppss-axes {
+  position: relative;
+  padding: 110px 20px;
+  
+  /* Gradiente de fondo unificado y limpio hacia el gris tecnológico de la app */
+  background: linear-gradient(
+    180deg,
+    var(--color-white) 0%,
+    var(--bg-card-soft) 100%
+  );
+}
+
+/* CONTAINER */
+.ppss-axes__container {
+  width: 100%;
+  max-width: 1320px;
+  margin: auto;
+}
+
+/* HEADER */
+.ppss-axes__header {
+  text-align: center;
+  max-width: 850px;
+  margin: auto auto 70px;
+}
+
+/* DECORATIVE LINE (Migrada de azul plano a gradiente de marca Teal) */
+.ppss-axes .section-line-blue {
+  width: 90px;
+  height: 5px;
+  display: block;
+  margin: 0 auto 24px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--color-brand-main), rgba(110, 200, 216, 0.4));
+}
+
+/* TITLE */
+.ppss-axes__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 20px;
+}
+
+/* DESCRIPTION */
+.ppss-axes__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--color-text-body);
+}
+
+/* GRID */
+.ppss-axes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 80px;
+}
+
+/* CARD INDIVIDUAL */
+.ppss-axes__card {
+  position: relative;
+  padding: 34px 30px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card); /* Ajustado a blanco puro/translúcido para contraste superior sobre el fondo soft */
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+  overflow: hidden;
+}
+
+.ppss-axes__card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.25);
+}
+
+/* ICON CONTAINER */
+.ppss-axes__icon {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-md); /* Homologado con los radios del sistema */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(110, 200, 216, 0.08); /* Fondo Teal translúcido */
+  margin: 0 auto 22px;
+  transition: var(--transition-fast);
+}
+
+/* Iluminación del contenedor de icono en hover */
+.ppss-axes__card:hover .ppss-axes__icon {
+  background: rgba(110, 200, 216, 0.15);
+}
+
+.ppss-axes__icon img {
+  width: 42px; /* Ajuste proporcional de seguridad */
+  height: 42px;
+  object-fit: contain;
+}
+
+/* BADGE INTERNO (Migrado a la paleta corporativa Teal) */
+.ppss-axes__badge {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(110, 200, 216, 0.08);
+  color: var(--color-brand-main); /* Teal Principal */
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* CARD TITLE */
+.ppss-axes__card-title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text-dark); /* Unificado para evitar el azul oscuro viejo */
+  margin-bottom: 24px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* El título se enciende en Teal al hacer hover en la tarjeta */
+.ppss-axes__card:hover .ppss-axes__card-title {
+  color: var(--color-brand-main);
+}
+
+/* LIST COMPONENT */
+.ppss-axes__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ppss-axes__list li {
+  position: relative;
+  padding-left: 22px;
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+/* DOTS / VIÑETAS PERSONALIZADAS (Sincronizadas con tus variables globales) */
+.ppss-axes__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  
+  /* Usa tu variable de degradado de punto o hereda el Teal Principal directo */
+  background: var(--color-brand-main); 
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1200px) {
+  .ppss-axes__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ppss-axes {
+    padding: 80px 16px;
+  }
+
+  .ppss-axes__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ppss-axes__card {
+    padding: 28px 24px;
+  }
+
+  /* Limpieza de selectores que venían huerfanos del código original */
+  .ppss-axes__header {
+    margin-bottom: 45px;
+  }
+}
+
+/* ==================== USER ASSOCIATION ==================== */
+
+.user-association {
+  position: relative;
+  padding: 110px 20px;
+  background: var(--color-white);
+} cutout-edge,
+
+/* CONTAINER */
+.user-association__container {
+  width: 100%;
+  max-width: 1320px;
+  margin: auto;
+}
+
+/* HEADER */
+.user-association__header {
+  text-align: center;
+  max-width: 850px;
+  margin: auto auto 70px;
+}
+
+/* DECORATIVE LINE (Migrada a gradiente de marca Teal) */
+.user-association .section-line-blue {
+  width: 90px;
+  height: 5px;
+  display: block;
+  margin: 0 auto 24px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--color-brand-main), rgba(110, 200, 216, 0.4));
+}
+
+/* TITLE */
+.user-association__title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 22px;
+}
+
+/* DESCRIPTION */
+.user-association__description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+}
+
+/* GRID */
+.user-association__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 90px;
+}
+
+/* CARD INDIVIDUAL */
+.user-association__card {
+  position: relative;
+  padding: 34px 30px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card-soft); /* Fondo tecnológico sutil */
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+}
+
+.user-association__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.25);
+}
+
+/* ICON WRAPPER: Mantiene título y texto al frente de forma impecable */
+.user-association__icon-wrapper {
+  display: flex;
+  align-items: center; 
+  gap: 16px;          
+  margin-bottom: 20px; 
+}
+
+/* ICONO CHICO DENTRO DE CARD */
+.user-association__icon-small {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(110, 200, 216, 0.08); /* Cambiado a Teal translúcido */
+  flex-shrink: 0; 
+  transition: var(--transition-fast);
+}
+
+.user-association__card:hover .user-association__icon-small {
+  background: rgba(110, 200, 216, 0.15);
+}
+
+.user-association__icon-small img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* CARD TITLE */
+.user-association__card-title {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text-dark); /* Migrado de azul oscuro */
+  margin: 0; 
+  transition: color 0.3s ease;
+}
+
+.user-association__card:hover .user-association__card-title {
+  color: var(--color-brand-main); /* Encendido Teal en hover */
+}
+
+/* CARD DESCRIPTION */
+.user-association__card-description {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: var(--color-text-body);
+}
+
+/* ==================== BOTTOM (BANNER DE ACCIÓN) ==================== */
+
+.user-association__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 50px;
+  border-radius: var(--radius-lg);
+
+  /* Gradiente e iluminación clínica adaptada */
+  background: linear-gradient(
+    135deg,
+    rgba(110, 200, 216, 0.08),
+    rgba(91, 191, 208, 0.04)
+  );
+  border: 1px solid rgba(110, 200, 216, 0.15);
+}
+
+/* CONTENT BLOCK */
+.user-association__content {
+  flex: 1;
+}
+
+.user-association__content h3 {
+  font-family: var(--font-title); /* Fuerza Poppins */
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-brand-main); /* Reemplazado azul por tu Teal Principal */
+  margin-bottom: 18px;
+}
+
+.user-association__content p {
+  font-family: var(--font-body); /* Fuerza Inter */
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--color-text-body);
+  margin-bottom: 28px;
+}
+
+/* TAGS WRAPPER */
+.user-association__tags {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* BADGES / TAGS INFRAESTRUCTURA */
+.user-association__tags span {
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(110, 200, 216, 0.08);
+  color: var(--color-brand-main); /* Cambiado a Teal Principal */
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ILUSTRACIÓN / ICONO GRANDE */
+.user-association__icon {
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px; /* Se conserva tu radio decorativo amplio */
+  background: rgba(110, 200, 216, 0.08); /* Cambiado a atmósfera Teal */
+}
+
+.user-association__icon img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1200px) {
+  .user-association__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-association {
+    padding: 80px 16px;
+  }
+
+  .user-association__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .user-association__bottom {
+    flex-direction: column;
+    text-align: center;
+    padding: 36px 24px;
+    gap: 30px;
+  }
+
+  .user-association__tags {
+    justify-content: center;
+  }
+
+  .user-association__content h3 {
+    font-size: 1.7rem;
+  }
+
+  .user-association__icon {
+    width: 130px;
+    height: 130px;
+  }
+
+  .user-association__icon img {
+    width: 70px;
+    height: 70px;
+  }
+}
