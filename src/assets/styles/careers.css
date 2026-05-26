@@ -1,0 +1,860 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== CAREERS HERO ==================== */
+
+.careers-hero {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* overlay blanco elegante */
+.careers-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.85) 30%,
+    rgba(255, 255, 255, 0.55) 60%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  z-index: 1;
+}
+
+/* contenedor */
+.careers-hero__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: auto;
+  padding: 120px 32px 60px;
+  width: 100%;
+}
+
+/* contenido */
+.careers-hero__content {
+  max-width: 600px;
+}
+
+/* título */
+.careers-hero__title {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 18px;
+  color: var(--color-hero-title);
+}
+
+/* descripción */
+.careers-hero__description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-hero);
+  margin-bottom: 28px;
+}
+
+/* BOTONES CONTENEDOR */
+.careers-hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ESTILO BASE DE LOS BOTONES: Ambos grises oscuros corporativos */
+.btn-hero-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  min-width: 240px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-full, 9999px);
+  text-decoration: none;
+  
+  /* Estado estático: Gris oscuro profesional */
+  background: #ececec; 
+  color: var(--color-brand-main);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-card);
+  
+  transition: transform 0.3s ease, background 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* ICONOS DENTRO DEL BOTÓN */
+.btn-hero-action img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* HOVER UNIFICADO: Transición premium hacia tu Borgoña Corporativo para ambos */
+.btn-hero-action:hover {
+  transform: translateY(-3px);
+  
+  /* Degradado teal estático con carácter */
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-main) 0%, 
+    var(--color-brand-medium) 100%
+  );
+  
+  box-shadow: 0 10px 24px rgba(110, 200, 216, 0.25);
+  color: var(--color-white);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .careers-hero__container {
+    padding: 100px 20px 60px;
+  }
+
+  .careers-hero__title {
+    font-size: 2.2rem;
+  }
+
+  .careers-hero__description {
+    font-size: 0.95rem;
+  }
+  
+  .btn-hero-action {
+    width: 100%; /* Botones a ancho completo en móviles pequeños */
+  }
+}
+
+/* ==================== CAREERS BENEFITS ==================== */
+
+.careers-benefits {
+  padding: 80px 20px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil y limpio */
+}
+
+.careers-benefits__container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* HEADER */
+.careers-benefits__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-brand-main);
+  background: rgba(110, 200, 216, 0.08);
+  margin-bottom: 12px;
+}
+
+.careers-benefits__title {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 14px;
+}
+
+.careers-benefits__description {
+  max-width: 650px;
+  margin: 0 auto 50px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+/* GRID */
+.careers-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* ================= TARJETA IMPAR: BLANCA (BASE) ================= */
+.benefit-card {
+  padding: 28px 22px;
+  border-radius: var(--radius-md);
+
+  background: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+
+  text-align: left;
+  transition: var(--transition-base);
+}
+
+/* Títulos y textos para la tarjeta blanca */
+.benefit-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.benefit-card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+/* Icono para la tarjeta blanca */
+.benefit-card__icon {
+  width: 55px;
+  height: 55px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-icon-brand); /* Fondo borgoña muy sutil */
+}
+
+/* ================= TARJETA PAR: BORGOÑA SÓLIDA (AUTOMÁTICA) ================= */
+.benefit-card:nth-child(even) {
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-main) 0%, 
+    var(--color-brand-medium) 100%
+  );
+  border-color: rgba(108, 117, 125, 0.15);
+}
+
+/* Forzar textos blancos en la tarjeta borgoña */
+.benefit-card:nth-child(even) h3 {
+  color: var(--color-white);
+}
+
+.benefit-card:nth-child(even) p {
+  color: var(--color-white);
+  opacity: 0.9;
+}
+
+/* Forzar que la caja del icono resalte limpia sobre el fondo borgoña */
+.benefit-card:nth-child(even) .benefit-card__icon {
+  background: var(--color-white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* HOVER GLOBAL (Aplica a ambas pero con sombras personalizadas) */
+.benefit-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Sombra de hover para blanca */
+.benefit-card:nth-child(odd):hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Sombra de hover para borgoña */
+.benefit-card:nth-child(even):hover {
+  box-shadow: 0 16px 34px rgba(110, 200, 216, 0.25);
+}
+
+
+/* ESTRUCTURA INTERNA GENERAL */
+.benefit-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.benefit-card__icon img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+  .careers-benefits__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .careers-benefits__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== VACANCIES ==================== */
+
+.vacancies {
+  padding: 80px 20px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil y limpio */
+}
+
+.vacancies__container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* HEADER */
+.vacancies__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-brand-main); /* Cambiado a Borgoña */
+  background: rgba(110, 200, 216, 0.08);
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.vacancies__title {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.vacancies__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* CARD PREMIUM & DINÁMICA */
+.vacancy-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Espaciado uniforme interno */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Línea de acento superior: Cambiada al degradado Borgoña corporativo estático */
+.vacancy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-title);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+/* Interacciones al hacer Hover */
+.vacancy-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+.vacancy-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* HEADER CARD (ICONO + TITULO) */
+.vacancy-card__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ICONO: Cambiado a fondo Borgoña suave unificado */
+.vacancy-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-icon-brand);
+  transition: var(--transition-base);
+}
+
+.vacancy-card:hover .vacancy-card__icon {
+  background: rgba(110, 200, 216, 0.14);
+  transform: scale(1.05);
+}
+
+.vacancy-card__icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* TEXTO DEL HEADER */
+.vacancy-card__header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vacancy-card__header-info h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+/* BADGE DE CIUDAD */
+.vacancy-card__city {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.vacancy-card__city svg {
+  color: var(--color-brand-main); /* Icono de mapa en Borgoña */
+}
+
+/* SECCIONES INTERNAS (Objetivo y Perfil) */
+.vacancy-card__section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* SUB-ETIQUETAS INTERNAS: Cambiadas a Borgoña */
+.vacancy-card__tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-brand-main);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vacancy-card__tag svg {
+  opacity: 0.9;
+}
+
+/* DESCRIPCIÓN */
+.vacancy-card__description {
+  font-size: 0.9rem;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* LISTA DE PERFIL REQUERIDO */
+.vacancy-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.vacancy-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--color-text-body);
+  line-height: 1.5;
+}
+
+/* Iconos de check (Mantiene verde clínico/salud de éxito) */
+.vacancy-card__list li svg {
+  color: #10b981; 
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* FOOTER DE LA TARJETA */
+.vacancy-card__footer {
+  margin-top: auto; 
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.vacancy-card__schedule {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-soft);
+}
+
+.vacancy-card__schedule svg {
+  color: var(--color-brand-main); /* Icono de reloj en Borgoña */
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+  .vacancies__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ==================== CTA (LLAMADO A LA ACCIÓN) ==================== */
+
+.vacancies__cta {
+  margin-top: 75px; 
+  padding: 32px 24px;
+  background: rgba(110, 200, 216, 0.02); /* Fondo Teal extremadamente suave */
+  border: 1px dashed var(--color-border-soft);
+  border-radius: var(--radius-md);
+  max-width: 650px;
+  margin-left: auto; 
+  margin-right: auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px; 
+  transition: var(--transition-base);
+}
+
+/* Interacción sobre el bloque del CTA */
+.vacancies__cta:hover {
+  background: rgba(110, 200, 216, 0.04);
+  border-color: rgba(110, 200, 216, 0.25);
+}
+
+.vacancies__cta p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-body);
+  margin: 0; 
+  line-height: 1.5;
+}
+
+/* Botón de postulación heredando la clase principal borgoña de tu app */
+.vacancies__cta .btn-primary-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-button);
+  animation: gradientMove 6s ease infinite; /* Mantiene la sutil animación */
+  transition: var(--transition-base);
+}
+
+.vacancies__cta .btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* ==================== APPLY SECTION (CENTERED) ==================== */
+
+.apply {
+  padding: 60px 20px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil y limpio */
+}
+
+.apply__container {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================= HEADER ================= */
+
+.apply__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* INSIGNIA: Adaptada a tu Borgoña de marca */
+.apply__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-brand-main);
+  background: rgba(110, 200, 216, 0.08);
+  margin-bottom: 12px;
+}
+
+.apply__title {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 12px;
+}
+
+.apply__description {
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  max-width: 650px;
+  margin: auto;
+}
+
+/* ================= FORM ================= */
+
+.apply__form {
+  width: 100%;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-md);
+  padding: 28px;
+}
+
+/* GRID */
+.apply__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* FIELD */
+.apply__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.apply__field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: 6px;
+}
+
+.apply__field input,
+.apply__field select,
+.apply__field textarea {
+  padding: 10px 12px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border-light);
+  font-size: 0.9rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.apply__field textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+/* FOCUS CORREGIDO: Resaltado fino en Borgoña Corporativo */
+.apply__field input:focus,
+.apply__field select:focus,
+.apply__field textarea:focus {
+  border-color: var(--color-brand-main);
+  box-shadow: 0 0 0 3px rgba(110, 200, 216, 0.12); /* Aureola sutil de marca */
+}
+
+/* FILE TEXT */
+.apply__field small {
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+  margin-top: 6px;
+}
+
+/* CHECKBOX */
+.apply__checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--color-text-body);
+  margin: 10px 0 20px;
+}
+
+.apply__checkbox input {
+  margin-top: 3px;
+}
+
+/* Enfoque para el checkbox */
+.apply__checkbox input:focus {
+  outline: 1px solid var(--color-brand-main);
+}
+
+/* BUTTON CENTER */
+.apply__form button {
+  width: 100%;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .apply__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,755 @@
+@import "tailwindcss";
+
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+}
+
+.header-wrapper{
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+}
+
+/* topbar */
+.topbar-clean{
+  width:100%;
+  background:#fffbfb;
+  border-bottom:1px solid rgba(0,0,0,0.04);
+}
+
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  min-height:52px;
+  width: 100%;
+}
+
+/* logos */
+.topbar-logos{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+}
+
+.topbar-logo{
+  display:block;
+  object-fit:contain;
+  transition:opacity .25s ease;
+}
+
+.topbar-logo:hover{
+  opacity:.8;
+}
+
+.cedicaf-logo{
+  height:32px;
+  width:auto;
+}
+
+.diaxme-logo{
+  height:28px;
+  width:auto;
+}
+
+/* acciones */
+.topbar-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+  flex-wrap:wrap;
+  min-width:0;
+}
+
+/* links */
+.top-link{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:all .25s ease;
+  cursor:pointer;
+  text-decoration:none;
+  color:var(--color-text-soft);
+  font-size:14px;
+  font-weight:500;
+  white-space:nowrap;
+}
+
+.top-link:hover{
+  color:var(--color-brand-hover);
+}
+
+.top-link-text{
+  line-height:1;
+}
+
+/* icono normal */
+.icon-box{
+  width:24px;
+  height:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.icon-box img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+/* botón PSE */
+.pse-button{
+  display:flex;
+  align-items:center;
+  border-radius:999px;
+  overflow:hidden;
+  font-weight:600;
+  text-decoration:none;
+  transition:all .25s ease;
+  flex-shrink:0;
+}
+
+/* ICONO → AZUL ESTÁTICO */
+.pse-icon-zone{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:41px;
+  height:41px;
+  background:#facc15; /* azul fijo */
+}
+
+.pse-icon-zone img{
+  width:36px;
+  height:36px;
+  object-fit:contain;
+}
+
+/* TEXTO → AMARILLO ANIMADO */
+.pse-text{
+  padding:6px 16px;
+  color:#1e3a8a; /* azul oscuro para contraste */
+  
+  background:linear-gradient(
+    270deg,
+    #facc15,
+    #fde047,
+    #fbbf24,
+    #f59e0b
+  );
+
+  background-size:300% 300%;
+  animation:pseGradient 6s ease infinite;
+
+  font-size:11px;
+  line-height:1.2;
+  max-width:120px;
+  text-align:center;
+  white-space:normal;
+}
+
+.pse-button:hover{
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(250,204,21,0.35);
+}
+
+/* animación degradado */
+@keyframes pseGradient{
+  0%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+  100%{ background-position:0% 50%; }
+}
+
+/* tablet */
+@media (max-width:1024px){
+  .topbar-inner{
+    gap:12px;
+  }
+
+  .topbar-actions{
+    gap:10px;
+  }
+
+  .cedicaf-logo{
+    height:30px;
+  }
+
+  .diaxme-logo{
+    height:26px;
+  }
+
+  .top-link{
+    font-size:13px;
+  }
+
+  .pse-text{
+    padding:6px 12px;
+    font-size:13px;
+  }
+}
+
+/* mobile grande */
+@media (max-width:768px){
+  .topbar-inner{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+
+  .topbar-logos{
+    width:100%;
+    justify-content:center;
+    gap:10px;
+  }
+
+  .topbar-actions{
+    width:100%;
+    justify-content:center;
+    gap:10px;
+  }
+
+  .phone-link{
+    display:none;
+  }
+
+  .hide-mobile-md{
+    display:none;
+  }
+
+  .cedicaf-logo{
+    height:28px;
+  }
+
+  .diaxme-logo{
+    height:24px;
+  }
+}
+
+/* mobile pequeño */
+@media (max-width:480px){
+  .topbar-inner{
+    gap:8px;
+  }
+
+  .topbar-actions{
+    gap:8px;
+  }
+
+  .hide-mobile-sm{
+    display:none;
+  }
+
+  .top-link{
+    padding:4px 6px;
+  }
+
+  .pse-icon-zone{
+    width:38px;
+    height:32px;
+  }
+
+  .pse-text{
+    display:none;
+  }
+}
+
+/*------Menu Principal------*/
+
+.main-navbar{
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* menu principal */
+.menu-items{
+  display: flex;
+  align-items: center;
+  gap: 34px; /* más aire entre opciones */
+  font-weight: 500;
+  color: var(--color-text-dark);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* links principales */
+.menu-items > li > a,
+.menu-items > li > span{
+  cursor: pointer;
+  padding: 20px 0;
+  transition: all .25s ease;
+  text-decoration: none;
+  color: var(--color-text-soft);
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* Al pasar el mouse cambia al Teal Principal */
+.menu-items > li > a:hover,
+.menu-items > li > span:hover{
+  color: var(--color-brand-main);
+}
+
+/* dropdown */
+.dropdown{
+  position: relative;
+}
+
+/* submenu */
+.submenu{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  width: 190px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 6px;
+  list-style: none;
+  margin: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: .25s;
+  z-index: 1001;
+}
+
+/* mostrar submenu */
+.submenu.show{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.submenu li{
+  padding: 0;
+  margin: 0;
+}
+
+.submenu li a{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-text-soft); 
+  font-size: 14px;
+  line-height: 1.2;
+  transition: .2s ease;
+}
+
+.submenu li a:hover{
+  background: #F8F9FA; 
+  color: var(--color-brand-main); 
+}
+
+/* botón agenda */
+.agenda-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-width: 180px;
+  height: 42px;
+  padding: 0 16px;
+
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #F8F9FA !important; 
+  text-decoration: none;
+
+
+  background: linear-gradient(
+    270deg,
+    #6EC8D8, 
+    #5BBFD0, 
+    #6EC8D8
+  );
+
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite, bounceBtn 2.5s ease-in-out infinite;
+
+  white-space: nowrap;
+  transition: all .25s ease;
+}
+
+.agenda-btn img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.agenda-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(110, 200, 216, 0.25); 
+}
+
+.menu-items .agenda-btn,
+.menu-items .agenda-btn:hover{
+  color: #F8F9FA !important;
+}
+
+/* botón mobile */
+.menu-toggle{
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-brand-main); 
+}
+
+/* animaciones */
+@keyframes gradientMove{
+  0%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+  100%{ background-position:0% 50%; }
+}
+
+@keyframes bounceBtn{
+  0%, 100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-2px);
+  }
+}
+
+/* tablet */
+@media (max-width:1024px){
+  .menu-items{
+    gap: 22px;
+  }
+
+  .menu-items > li > a,
+  .menu-items > li > span{
+    font-size: 14px;
+    padding: 18px 0;
+  }
+
+  .agenda-btn{
+    min-width: 155px;
+    height: 40px;
+    padding: 0 14px;
+    font-size: 11px;
+  }
+
+  .agenda-btn img{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* mobile */
+@media (max-width:768px){
+  .menu-toggle{
+    display: block;
+  }
+
+  .menu-items{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 14px 20px 20px;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  .menu-items.menu-open{
+    display: flex;
+  }
+
+  .menu-items > li{
+    width: 100%;
+  }
+
+  .menu-items > li > a,
+  .menu-items > li > span{
+    width: 100%;
+    padding: 14px 0;
+    font-size: 15px;
+  }
+
+  .submenu{
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid rgba(0,0,0,0.06);
+    margin-top: 4px;
+    padding: 6px;
+    border-radius: 10px;
+
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+
+  .submenu.show{
+    display: block;
+  }
+
+  .submenu li a{
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .agenda-btn{
+    width: 100%;
+    margin-top: 10px;
+    min-width: 100%;
+    height: 42px;
+    justify-content: center;
+  }
+}
+
+/*--------Footer----------*/
+
+.footer{
+  background:#ffffff;
+  padding:50px 20px 20px;
+  color:var(--color-text-body);
+  border-top:1px solid rgba(110, 200, 216, 0.08);
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+
+.footer-logo{
+  width:160px;
+  margin-bottom:10px;
+  display:block;
+}
+
+.footer-col h4{
+  font-weight:600;
+  margin-bottom:12px;
+  border-bottom:2px solid var(--color-brand-main);
+  display:inline-block;
+  padding-bottom:4px;
+  color:var(--color-text-dark);
+}
+
+.footer-col ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-col ul li{
+  margin-bottom:8px;
+  font-size:14px;
+}
+
+/* 🔥 LINKS */
+.footer-col a{
+  text-decoration:none;
+  color:var(--color-text-body);
+  transition:.2s;
+  display:inline-block;
+}
+
+.footer-col a:hover{
+  color:var(--color-brand-main);
+}
+
+.footer-logos{
+  margin-top:15px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.logo-icontec{
+  width:60px;
+  height:auto;
+  object-fit:contain;
+}
+
+.logo-iqnet,
+.logo-supersalud{
+  width:90px;
+  height:auto;
+  object-fit:contain;
+}
+
+.contact-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+.contact-list img{
+  width:18px;
+  height:18px;
+  object-fit:contain;
+  margin-top:2px;
+}
+
+.contact-list li a{
+  word-break:break-word;
+}
+
+.footer-bottom{
+  margin-top:30px;
+  padding-top:15px;
+  border-top:1px solid rgba(0,0,0,0.08);
+  text-align:center;
+  font-size:13px;
+}
+
+.footer-bottom p{
+  margin:0;
+}
+
+@media (max-width:768px){
+  .footer{
+    padding:40px 15px 20px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .footer-logo{
+    width:140px;
+  }
+
+  .footer-bottom{
+    margin-top:25px;
+  }
+}
+
+/*---------Logo---------------*/
+.floating-logo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px; 
+  z-index: 9999;
+  animation: floatingBounce 2.5s ease-in-out infinite;
+}
+
+.floating-logo__image {
+  width: 110px;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+/* TOOLTIP */
+.floating-logo__tooltip {
+  position: absolute;
+  bottom: 130px;
+  right: 50%;
+  transform: translateX(50%) scale(0.9);
+
+  background: linear-gradient(
+    270deg, 
+    #6EC8D8, 
+    #5BBFD0,
+    #6EC8D8
+  );
+  color: white;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 18px rgba(110, 200, 216, 0.2);
+}
+
+/* FLECHITA (Ajustada al tono intermedio del degradado animado) */
+.floating-logo__tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #6EC8D8 transparent transparent transparent;
+}
+
+/* CLASE QUE ACTIVA EL TOOLTIP DESDE REACT */
+.floating-logo__tooltip.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(50%) scale(1);
+}
+
+/* Animación de balanceo (Se mantiene intacta) */
+@keyframes floatingBounce {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .floating-logo {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .floating-logo__image {
+    width: 80px;
+  }
+}

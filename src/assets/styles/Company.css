@@ -1,0 +1,715 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== COMPANY HERO ==================== */
+
+.company-hero {
+  width: 100%;
+  padding: 80px 20px 80px;
+  background: var(--color-white);
+}
+
+/* CONTENEDOR */
+.company-hero__container {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* IZQUIERDA */
+.company-hero__content {
+  max-width: 520px;
+}
+
+/* BADGE: Cambiado a Teal sutil */
+.company-hero__badge {
+  display: inline-block;
+  margin-bottom: 14px;
+
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  color: var(--color-brand-main);
+  background: rgba(110, 200, 216, 0.08);
+}
+
+/* TITULO */
+.company-hero__title {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 18px;
+
+  color: var(--color-hero-title);
+}
+
+/* TEXTO */
+.company-hero__description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+
+  margin-bottom: 24px;
+}
+
+/* DERECHA */
+.company-hero__image {
+  width: 100%;
+}
+
+/* IMAGEN */
+.company-hero__image img {
+  width: 100%;
+  height: auto;
+
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+
+  box-shadow: var(--shadow-card);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 992px) {
+
+  .company-hero__container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .company-hero__content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .company-hero__image img {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .company-hero {
+    padding: 100px 15px 60px;
+  }
+
+  .company-hero__title {
+    font-size: 2rem;
+  }
+
+  .company-hero__description {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==================== HISTORY TIMELINE ==================== */
+
+.history {
+  padding: 100px 20px 40px; 
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil y limpio */
+}
+
+.history__container {
+  max-width: 1100px; /* más compacto */
+  margin: auto;
+  text-align: center;
+}
+
+/* HEADER */
+/* INSIGNIA: Adaptada a Teal sutil */
+.history__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-brand-main);
+  background: rgba(110, 200, 216, 0.08);
+  margin-bottom: 12px;
+}
+
+.history__title {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+}
+
+.history__line {
+  width: 70px;
+  height: 4px;
+  margin: 14px auto 60px;
+  background: var(--gradient-line); /* Enlazada al degradado corporativo */
+  border-radius: var(--radius-full);
+}
+
+/* TIMELINE */
+.history__timeline {
+  position: relative;
+}
+
+/* línea central */
+.history__timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--gradient-line);
+  transform: translateX(-50%);
+}
+
+/* ITEM */
+.history__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.history__item:last-child {
+  margin-bottom: 0;
+}
+
+/* punto cronológico: Adaptado a la marca */
+.history__item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: var(--color-brand-main);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 4px rgba(110, 200, 216, 0.15); /* Efecto de aureola suave */
+}
+
+/* alternar */
+.history__item--reverse .history__content {
+  order: 2;
+}
+.history__item--reverse .history__image {
+  order: 1;
+}
+
+/* TEXTO */
+.history__content {
+  padding: 10px 20px;
+  text-align: justify; /* importante */
+}
+
+/* INDICADOR DE AÑO: Cambiado a Borgoña */
+.history__year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-brand-main);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.history__content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.history__content p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+/* IMAGEN (MÁS PEQUEÑA) */
+.history__image {
+  display: flex;
+  justify-content: center;
+}
+
+.history__image img {
+  width: 75%; /* clave: reduce tamaño */
+  max-width: 320px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-soft);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+
+  .history__timeline::before {
+    left: 20px;
+  }
+
+  .history__item {
+    grid-template-columns: 1fr;
+    padding-left: 40px;
+  }
+
+  .history__item::before {
+    left: 20px;
+  }
+
+  .history__content {
+    text-align: justify;
+  }
+
+  .history__image img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ==================== PRINCIPIOS (ACTUALIZADO) ==================== */
+
+.principles {
+  padding: 20px 20px 100px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil y limpio */
+}
+
+.principles__container {
+  max-width: 1300px;
+  margin: auto;
+  text-align: center;
+}
+
+/* HEADER */
+.principles__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-brand-main);
+  background: rgba(110, 200, 216, 0.08);
+  margin-bottom: 12px;
+}
+
+.principles__title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+}
+
+.principles__line {
+  width: 70px;
+  height: 4px;
+  margin: 14px auto 50px;
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* GRID */
+.principles__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+}
+
+/* CARD: Degradado uniforme de Teal a Mint */
+.principle-card {
+  padding: 28px 18px;
+  border-radius: var(--radius-md);
+
+  background: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #21bcae 60%,
+    #5BBFD0 100%
+  );
+  border: 1px solid rgba(108, 117, 125, 0.15);
+
+  color: var(--color-white); /* Texto en blanco para máxima legibilidad */
+
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-base);
+
+  text-align: center;
+}
+
+/* HOVER */
+.principle-card:hover {
+  transform: translateY(-6px);
+  /* Sombra reactiva en tono teal para dar volumen */
+  box-shadow: 0 16px 34px rgba(110, 200, 216, 0.22);
+}
+
+/* ICONO */
+.principle-card__icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 14px;
+  border-radius: var(--radius-sm);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.principle-card__icon img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+} 
+
+/* TÍTULOS internos en blanco sobre el fondo borgoña sólido */
+.principle-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--color-white);
+}
+
+/* TEXTO interno suavizado con opacidad para descansar la vista, pero aún blanco */
+.principle-card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-white);
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1100px) {
+  .principles__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .principles__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .principles__grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ==================== TECHNOLOGY ==================== */
+
+.technology {
+  padding: 20px 20px 100px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil y limpio */
+}
+
+.technology__container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HEADER */
+.technology__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.technology__title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-hero-title);
+  margin-bottom: 14px;
+}
+
+.technology__description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+/* CONTENT */
+.technology__content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* LISTA */
+.technology__list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* CARD HORIZONTAL: Cambiada a un sutil tono teal/gris médico */
+.tech-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+
+  background: rgba(110, 200, 216, 0.04);
+  border: 1px solid rgba(108, 117, 125, 0.15);
+
+  transition: var(--transition-base);
+}
+
+/* Interacción con desplazamiento hacia la derecha y resalte de marca sutil */
+.tech-card:hover {
+  transform: translateX(6px);
+  background: rgba(110, 200, 216, 0.08);
+  border-color: rgba(110, 200, 216, 0.2);
+}
+
+/* ICONO */
+.tech-card__icon {
+  width: 50px;
+  height: 50px;
+
+  border-radius: var(--radius-sm);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+
+  flex-shrink: 0;
+}
+
+.tech-card__icon img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* TEXTO: Removido el color azul oscuro */
+.tech-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-dark); /* Tu color oscuro corporativo principal */
+  margin-bottom: 4px;
+}
+
+.tech-card p {
+  font-size: 0.82rem;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+/* IMAGEN */
+.technology__image {
+  position: relative;
+}
+
+.technology__image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-soft);
+}
+
+/* BADGE: Usando el degradado de tu paleta estática sin deslavados */
+.technology__badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+
+  /* Degradado teal-mint estático */
+  background: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #21bcae 60%,
+    #5BBFD0 100%
+  );
+  color: var(--color-white);
+
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: var(--shadow-button);
+}
+
+.technology__badge strong {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.technology__badge span {
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+  .technology__content {
+    grid-template-columns: 1fr;
+  }
+
+  .technology__image {
+    margin-top: 30px;
+  }
+}

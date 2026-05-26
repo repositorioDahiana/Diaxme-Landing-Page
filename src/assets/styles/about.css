@@ -1,0 +1,844 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  /* Tipografías */
+  --font-body: 'Inter', sans-serif;
+  --font-title: 'Poppins', sans-serif;
+
+  /* Colores base */
+  --color-white: #ffffff;
+  --color-text-dark: #495057;     /* Gris Oscuro */
+  --color-text-body: #5a626a;     /* Gris medio para cuerpo */
+  --color-text-soft: #6c757d;     /* Gris tecnológico / intermedio */
+  --color-text-hero: #495057;
+  --color-hero-title: #6EC8D8;    /* Teal Principal */
+  
+  /* Paleta Corporativa Cedicaf */
+  --color-brand-dark: #5BBFD0;    /* Teal de contraste (más oscuro) */
+  --color-brand-main: #6EC8D8;    /* Teal Principal */
+  --color-brand-medium: #5BBFD0;  /* Mint Teal */
+  --color-brand-light: #F2F2F2;   /* Mint claro */
+  --color-brand-soft: #F2F2F2;    /* Mint muy suave */
+  --color-brand-gray: #6c757d;    /* Gris tecnológico */
+  --color-brand-hover: #5BBFD0;   /* Hover dinámico con el Teal Oscuro */
+  
+  --color-border-light: #e5e7eb;
+  --color-border-soft: rgba(108, 117, 125, 0.15); /* Basado en Gris Tecnológico */
+
+  /* Gradientes Dinámicos y Suaves */
+  --gradient-title: linear-gradient(
+    90deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-line: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-button: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #5BBFD0 100%
+  );
+  --gradient-number: linear-gradient(90deg, #6EC8D8, #5BBFD0);
+  --gradient-dot: linear-gradient(135deg, #6EC8D8, #5BBFD0);
+
+  /* Fondos */
+  --bg-grid-line: rgba(110, 200, 216, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-soft: rgba(248, 249, 250, 0.95);
+  --bg-btn-secondary: rgba(255, 255, 255, 0.8);
+  --bg-icon-brand: rgba(110, 200, 216, 0.08); /* Fondo sutil para iconos en Teal */
+
+  /* Sombras */
+  --shadow-card: 0 12px 35px rgba(73, 80, 87, 0.04);
+  --shadow-card-hover: 0 18px 40px rgba(110, 200, 216, 0.08);
+  --shadow-stat: 0 8px 18px rgba(110, 200, 216, 0.12);
+  --shadow-button: 0 12px 28px rgba(110, 200, 216, 0.15);
+  --shadow-button-hover: 0 16px 34px rgba(110, 200, 216, 0.25);
+  --shadow-nav: 0 10px 24px rgba(73, 80, 87, 0.05);
+  --shadow-highlight: 0 10px 30px rgba(73, 80, 87, 0.04);
+
+  /* Bordes */
+  --radius-full: 999px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 18px;
+  --radius-xs: 12px;
+
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.25s ease;
+}
+
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA; /* Blanco Clínico por defecto para toda la app */
+  color: var(--color-text-dark);
+}
+
+.home-page {
+  width: 100%;
+}
+
+/* Tipografía de títulos del home */
+.home-page .hero__title,
+.home-page .about-summary__title,
+.home-page .about-summary__number,
+.home-page .services-preview__title,
+.home-page .services-preview__card-title,
+.home-page .locations-preview__title,
+.home-page .locations-preview__card-title {
+  font-family: var(--font-title);
+}
+
+/* ==================== UTILITIES ==================== */
+/* Gradiente suave para textos destacados */
+.text-gradient-brand {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Líneas decorativas de sección */
+.section-line-brand {
+  background: var(--gradient-line);
+  border-radius: var(--radius-full);
+}
+
+/* Botones */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* Botón Principal (Con la animación de tonos suaves que baja) */
+.btn-primary-brand {
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  box-shadow: var(--shadow-button);
+  /* Mantiene vivo el movimiento sutil de colores */
+  animation: gradientMove 6s ease infinite; 
+}
+
+.btn-primary-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* Botón Secundario / Outline */
+.btn-secondary-outline {
+  background: var(--bg-btn-secondary);
+  color: var(--color-brand-main);
+  border: 1.8px solid var(--color-brand-main);
+  font-weight: 600;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-brand-main);
+  color: var(--color-white);
+}
+
+/* ==================== ABOUT HERO ==================== */
+.about-hero {
+  position: relative;
+  width: 100%;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.about-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.82) 28%,
+    rgba(255, 255, 255, 0.5) 55%,
+    rgba(255, 255, 255, 0.18) 100%
+  );
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.about-hero__container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  padding: 120px 32px 48px;
+  min-height: 78vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.about-hero__content {
+  max-width: 620px;
+  margin-left: 20px;
+}
+
+/* INSIGNIA: Cambiada de azul brillante a un sutil borgoña corporativo */
+.about-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 16px;
+  padding: 8px 14px;
+
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(110, 200, 216, 0.2);
+
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-brand-main); /* Tu Borgoña Principal */
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  box-shadow: 0 8px 20px rgba(30, 34, 41, 0.03);
+}
+
+.about-hero__title {
+  margin-bottom: 16px;
+
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1.04;
+  font-weight: 700;
+
+  color: var(--color-hero-title);
+}
+
+.about-hero__description {
+  max-width: 600px;
+  margin-bottom: 26px;
+
+  font-size: 1.02rem;
+  line-height: 1.75;
+
+  color: var(--color-text-hero);
+}
+
+/* =====================================================
+   STATS (Efecto Cristal Líquido)
+===================================================== */
+
+.about-hero__stats {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+
+  z-index: 3;
+}
+
+/* card */
+.about-hero__statCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 18px;
+  min-width: 180px;
+
+  border-radius: 14px;
+
+  /* glass effect */
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow: 0 8px 20px rgba(30, 34, 41, 0.05);
+
+  transition: var(--transition-base);
+}
+
+.about-hero__statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(110, 200, 216, 0.08);
+}
+
+/* icon */
+.about-hero__statIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* text */
+.about-hero__statText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+/* Textos adaptados para descansar la vista con tus colores de tipografía */
+.about-hero__statText strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.about-hero__statText span {
+  font-size: 0.72rem;
+  color: var(--color-text-soft); /* Gris Tecnológico */
+}
+
+/* Énfasis fuerte corporativo */
+.highlight {
+  font-weight: 700;
+  color: var(--color-brand-main);
+}
+
+/* Énfasis suave corporativo */
+.highlight-soft {
+  font-weight: 600;
+  color: var(--color-brand-medium);
+}
+
+/* Marca con el degradado de títulos */
+.brand {
+  font-weight: 700;
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .about-hero__container {
+    padding: 110px 24px 120px;
+  }
+
+  .about-hero__content {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .about-hero__stats {
+    left: 24px;
+    bottom: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: auto;
+  }
+
+  .about-hero__container {
+    min-height: auto;
+    padding: 110px 16px 120px;
+  }
+
+  .about-hero__title {
+    font-size: 2.2rem;
+  }
+
+  .about-hero__description {
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .about-hero__stats {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    gap: 10px;
+  }
+
+  .about-hero__statCard {
+    flex: 1;
+    min-width: unset;
+    padding: 12px 14px;
+  }
+}
+
+/* Mobile pequeño */
+@media (max-width: 480px) {
+  .about-hero__badge {
+    font-size: 0.72rem;
+    padding: 7px 12px;
+  }
+
+  .about-hero__title {
+    font-size: 2rem;
+  }
+
+  .about-hero__stats {
+    flex-direction: column;
+  }
+
+  .about-hero__statCard {
+    width: 100%;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .about-hero__statIcon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* =====================================================
+   ABOUT INTRO
+===================================================== */
+
+.about-intro {
+  width: 100%;
+  padding: 60px 20px;
+  background: var(--bg-card-soft); /* Un fondo gris tecnológico muy sutil y limpio */
+}
+
+/* ==================== FRASE ==================== */
+
+.about-intro__quote {
+  max-width: 900px;
+  margin: 0 auto 40px;
+
+  padding-left: 20px;
+  border-left: 4px solid var(--color-brand-main); /* Cambiado al Borgoña Corporativo */
+
+  font-style: italic;
+  color: var(--color-text-body); /* Color gris/médico suave para lectura descansada */
+  line-height: 1.7;
+}
+
+.about-intro__quote p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ==================== STATS ==================== */
+
+.about-intro__stats {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* card */
+.about-intro__card {
+  background: var(--color-white);
+  border-radius: 14px;
+  border: 1px solid var(--color-border-light);
+
+  padding: 25px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  box-shadow: 0 6px 15px rgba(30, 34, 41, 0.02);
+
+  transition: all 0.3s ease;
+}
+
+.about-intro__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(110, 200, 216, 0.12); /* Brillo sutil teal al pasar el cursor */
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* icono */
+.about-intro__card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+/* número */
+.about-intro__card h3 {
+  margin: 0 0 6px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-dark); /* Color oscuro institucional principal */
+}
+
+/* texto */
+.about-intro__card span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-soft); /* Gris Tecnológico */
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1024px) {
+  .about-intro__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .about-intro__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .about-intro__quote {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==================== MISSION & VISION ==================== */
+
+.mission-vision {
+  padding: 50px 10px;
+  background: var(--bg-card-soft); /* Fondo gris tecnológico sutil y limpio */
+}
+
+.mission-vision__container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* INSIGNIA: Cambiada de azul brillante a borgoña institucional suave */
+.mission-vision__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-brand-main); /* Tu Borgoña Principal */
+  background: rgba(110, 200, 216, 0.08); /* Fondo teal pastel sutil */
+  margin-bottom: 12px;
+}
+
+/* título */
+.mission-vision__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: var(--color-hero-title);
+}
+
+/* grid */
+.mission-vision__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* card base */
+.mission-card {
+  text-align: left;
+  padding: 40px 30px;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-base);
+}
+
+/* hover */
+.mission-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* HEADER (ICONO + TITULO) */
+.mission-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* ICONO */
+.mission-card__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mission-card__icon img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* TITULO */
+.mission-card h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-text-dark);
+}
+
+/* TEXTO */
+.mission-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+  margin-bottom: 14px;
+}
+
+/* MISIÓN: Adaptada de azul brillante a tus tonos borgoña suaves de marca */
+.mission-card--brand {
+  background: linear-gradient(
+    135deg,
+    rgba(110, 200, 216, 0.08),
+    rgba(110, 200, 216, 0.02)
+  );
+  border: 1px solid rgba(110, 200, 216, 0.15);
+}
+
+.mission-card--brand .mission-card__icon {
+  background: rgba(110, 200, 216, 0.12);
+}
+
+/* VISIÓN: Limpia y sin el verde anterior, integrada a la paleta médica */
+.mission-card--soft {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+}
+
+.mission-card--soft .mission-card__icon {
+  background: var(--bg-icon-brand); /* Fondo sutil borgoña/gris tecnológico */
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 992px) {
+  .mission-vision__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-card {
+    padding: 30px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-vision {
+    padding: 60px 15px;
+  }
+
+  .mission-vision__title {
+    font-size: 1.8rem;
+  }
+
+  .mission-card h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/* ==================== VALUES ==================== */
+
+.values-section {
+  position: relative;
+  padding: 100px 20px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden; /* importante */
+}
+
+/* TELITA BLANCA */
+.values-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(255, 255, 255, 0.65); /* ajusta aquí */
+
+  z-index: 1;
+}
+
+/* CONTENEDOR */
+.values-container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* BADGE: Cambiado de azul a tu Borgoña Corporativo suave */
+.values-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+
+  font-size: 1.0rem;
+  font-weight: 600;
+
+  color: var(--color-brand-main);
+  background: rgba(110, 200, 216, 0.08);
+
+  margin-bottom: 12px;
+}
+
+/* TÍTULO */
+.values-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: var(--color-hero-title);
+}
+
+/* GRID */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* CARD: Adaptada al degradado Teal corporativo agradable */
+.value-card {
+  padding: 30px 22px;
+  border-radius: var(--radius-md);
+
+  border: 1px solid rgba(108, 117, 125, 0.18);
+
+  background: linear-gradient(
+    135deg,
+    #6EC8D8 0%,
+    #21bcae 60%,
+    #5BBFD0 100%
+  );
+
+  color: var(--color-white);
+
+  box-shadow: 0 10px 28px rgba(110, 200, 216, 0.12);
+
+  transition: var(--transition-base);
+}
+
+/* HOVER */
+.value-card:hover {
+  transform: translateY(-6px);
+
+  background: linear-gradient(
+    135deg,
+    #5BBFD0 0%,
+    #6EC8D8 60%,
+    #5BBFD0 100%
+  );
+
+  box-shadow: 0 18px 34px rgba(110, 200, 216, 0.18);
+}
+
+/* ICONO (CUADRO BLANCO 🔥) */
+.value-icon {
+  width: 60px;
+  height: 60px;
+
+  margin: 0 auto 16px;
+
+  border-radius: var(--radius-sm);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ICONO IMG */
+.value-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* TITULO */
+.value-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* TEXTO */
+.value-card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MÓVIL → SIGUE EN 2 COLUMNAS */
+@media (max-width: 600px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .values-section {
+    padding: 70px 15px;
+  }
+
+  .value-card {
+    padding: 20px 14px;
+  }
+
+  .value-card h3 {
+    font-size: 1rem;
+  }
+
+  .value-card p {
+    font-size: 0.78rem;
+  }
+}
