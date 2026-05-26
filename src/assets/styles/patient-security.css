@@ -379,6 +379,11 @@ body {
   transition: var(--transition-base);
 }
 
+/* Tarjetas intercaladas con color de marca claro */
+.patient-humanization__card:nth-child(even) {
+  background: var(--bg-icon-brand);
+}
+
 .patient-humanization__card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-card-hover);
@@ -629,6 +634,11 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+/* Tarjetas intercaladas con color de marca claro */
+.patient-policy__card:nth-child(even) {
+  background: var(--bg-icon-brand);
 }
 
 .patient-policy__card:hover {

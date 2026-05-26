@@ -373,6 +373,11 @@ body {
   align-items: flex-start; /* Asegura alineación limpia arriba si el texto es largo */
 }
 
+/* Tarjetas intercaladas con color de marca claro */
+.patient-rights__card:nth-child(even) {
+  background: var(--bg-icon-brand);
+}
+
 .patient-rights__card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-card-hover);
@@ -502,6 +507,11 @@ body {
   border: 1px solid var(--color-border-soft);
 
   transition: var(--transition-base);
+}
+
+/* Tarjetas intercaladas con color de marca claro */
+.patient-duties__item:nth-child(even) {
+  background: var(--bg-icon-brand);
 }
 
 .patient-duties__item:hover {
