@@ -1,41 +1,60 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import corazonIcon from "../../assets/Iconos/email.png";
 import radiologiaIcon from "../../assets/Iconos/email.png";
 import mujerIcon from "../../assets/Iconos/email.png";
+import resonanciaImg from "../../assets/images/Fondo.jpg"; 
+import tomografiaImg from "../../assets/images/Fondo.jpg";
+import ecografiaImg from "../../assets/images/Fondo.jpg";
+import mamografiaImg from "../../assets/images/Fondo.jpg"; 
+import radiologiaImg from "../../assets/images/Fondo.jpg";
+import dopplerImg from "../../assets/images/Fondo.jpg"; 
 
 function ServicesPreview() {
+  const navigate = useNavigate();
+
   const services = [
     {
       id: 1,
-      icon: radiologiaIcon,
-      title: "Titulo",
-      description:
-        "Texto",
-      link: "/services",
-      featured: true,
+      title: "Resonancia Magnética",
+      image: resonanciaImg,
+      description: "Obtén imágenes detalladas de órganos, tejidos y estructuras internas sin procedimientos invasivos.",
     },
     {
       id: 2,
-      icon: mujerIcon,
-      title: "Titulo",
-      description:
-        "Texto",
-      link: "/services",
-      featured: false,
+      title: "Tomografía Computarizada",
+      image: tomografiaImg,
+      description: "Estudios de alta precisión que permiten diagnósticos rápidos y confiables.",
     },
     {
       id: 3,
-      icon: corazonIcon,
-      title: "Titulo",
-      description:
-        "Texto",
-      link: "/services",
-      featured: false,
+      title: "Ecografía",
+      image: ecografiaImg,
+      description: "Evaluación segura y efectiva para diferentes especialidades médicas.",
     },
-    
-    
+    {
+      id: 4,
+      title: "Mamografía",
+      image: mamografiaImg,
+      description: "Tecnología especializada para la detección temprana y prevención del cáncer de mama.",
+    },
+    {
+      id: 5,
+      title: "Radiología Digital",
+      image: radiologiaImg,
+      description: "Imágenes diagnósticas con menor tiempo de espera y excelente calidad.",
+    },
+    {
+      id: 6,
+      title: "Doppler y Duplex Scanning",
+      image: dopplerImg,
+      description: "Evaluación vascular avanzada para el análisis del flujo sanguíneo.",
+    },
   ];
+
+  const handleCardClick = () => {
+    navigate('/services');
+  };
 
   return (
     <section className="services-preview">
@@ -67,51 +86,51 @@ function ServicesPreview() {
           {services.map((service) => (
             <article
               key={service.id}
-              className={`services-preview__card ${
-                service.featured ? "services-preview__card--featured" : ""
-              }`}
+              className="service-card"
+              onClick={handleCardClick}
+              title="Ver todos los servicios"
             >
-
-              {/* ICONO + TITULO */}
-              <div className="services-preview__top">
-                <div className="services-preview__icon-box">
-                  <img
-                    src={service.icon}
-                    alt={service.title}
-                    className="services-preview__icon"
-                  />
+              <div className="service-card__image-container">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="service-card__image"
+                />
+                <div className="service-card__overlay">
+                  <span className="service-card__overlay-text">Explorar Servicio</span>
                 </div>
-
-                <h3 className="services-preview__card-title">
-                  {service.title.split("\n").map((line, index) => (
-                    <span key={index} className="services-preview__card-title-line">
-                      {line}
-                    </span>
-                  ))}
-                </h3>
               </div>
 
-              {/* DESCRIPCION */}
-              <p className="services-preview__card-description">
-                {service.description}
-              </p>
+              <div className="service-card__content">
+                <h3 className="service-card__title">{service.title}</h3>
+                <p className="service-card__desc">{service.description}</p>
 
-              {/* BOTON */}
-              <Link
-                to={service.link}
-                className="services-preview__card-button"
-              >
-                Ver más
-                <span className="services-preview__arrow">→</span>
-              </Link>
+                <div className="service-card__actions">
+                  <a
+                    href="https://appcedira.com/solicitarcita/public/solicitud-examen"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Agendar cita
+                  </a>
 
+                  <Link
+                    to="/services"
+                    className="btn btn-secondary-outline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Ver más
+                  </Link>
+                </div>
+              </div>
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );
 }
 
-export default ServicesPreview;
+export default ServicesPreview;

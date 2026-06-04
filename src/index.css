@@ -596,6 +596,15 @@
   align-items:center;
 }
 
+.footer-logo--animated{
+  transition: all .4s ease;
+  cursor: pointer;
+}
+
+.footer-logo--animated:hover{
+  transform: translateY(-5px) scale(1.05);
+}
+
 .logo-icontec{
   width:60px;
   height:auto;
@@ -638,6 +647,62 @@
 
 .footer-bottom p{
   margin:0;
+}
+.google-rating{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:6px;
+  text-decoration:none;
+  margin-top:15px;
+}
+
+.google-mini-logo{
+  width:90px;
+  height:auto;
+  display:block;
+  margin:0 auto;
+}
+
+.google-stars{
+  color:#fbbc05;
+  font-size:18px;
+  letter-spacing:2px;
+  line-height:1;
+}
+
+.google-text{
+  margin:0;
+  font-size:14px;
+  font-weight:600;
+  color:#4b5563;
+  transition:.3s;
+}
+
+.google-rating:hover .google-text{
+  color:var(--color-brand-main);
+}
+
+.google-rating:hover{
+  transform:translateY(-2px);
+}
+.footer-logo--animated{
+  animation:pulseLogo 3s ease-in-out infinite;
+}
+
+@keyframes pulseLogo{
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.05);
+  }
+
+  100%{
+    transform:scale(1);
+  }
 }
 
 @media (max-width:768px){

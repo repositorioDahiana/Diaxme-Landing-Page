@@ -76,7 +76,7 @@ function AboutSummary() {
       <div className="about-summary__container">
         <div className="about-summary__header">
           <h2 className="about-summary__title">
-            Tu salud en <span>manos de expertos</span>
+            ¿Por Qué <span>Elegirnos?</span>
           </h2>
 
           <p className="about-summary__description">

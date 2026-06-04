@@ -12,28 +12,25 @@ import pacientesIcon from "../../assets/Iconos/Resonancia.png";
 const slides = [
   {
     id: 1,
-    title: "La tecnología médica ",
-    highlight: "del futuro, hoy",
-    description:
-      "Sin viajes ni esperas. Diaxme lidera la innovación en Villavicencio y Acacías con servicios de resonancia y tomografía de alta precisión para cuidar tu bienestar.",
+    title: "Diagnóstico por Imágenes de ",
+    highlight: "Alta Precisión",
+    description: "Resonancia Magnética, Tomografía Computarizada, Ecografía y Mamografía con tecnología de última generación para diagnósticos confiables y oportunos.",
     image: tecnologiaHero,
     alt: "Equipo de Resonancia Magnética",
   },
   {
     id: 2,
-    title: "Diagnósticos rápidos ",
-    highlight: "y cerca de ti",
-    description:
-      "Porque tu bienestar es nuestra mayor vocación, en Diaxme unimos la mejor tecnología con un servicio profundamente humano para cuidar de tu salud y darte la tranquilidad que mereces.",
+    title: "Resultados Confiables ",
+    highlight: "Para Tu Tranquilidad",
+    description:"Contamos con equipos modernos y especialistas altamente calificados para brindarte estudios diagnósticos con altos estándares de calidad.",
     image: especialistasHero,
     alt: "Equipo médico",
   },
   {
     id: 3,
-    title: "Experiencia médica ",
-    highlight: "a tu alcance",
-    description:
-      "Te acompañamos en cada paso con un equipo de profesionales dedicados a proteger tu bienestar, brindándote una atención llena de respeto, calidez y el cuidado que tu vida merece.",
+    title: "Más Cerca de Ti ",
+    highlight: "Cuando Más Lo Necesitas",
+    description: "Agenda tus estudios de manera rápida y accede a nuestros servicios en Villavicencio y Acacías con atención segura, humana y oportuna.",
     image: clinicaHero,
     alt: "Clínica Radiólogos",
   },
