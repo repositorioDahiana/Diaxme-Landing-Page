@@ -21,9 +21,7 @@ function Footer() {
           />
 
           <p>
-            Más de 12 años uniendo innovación médica y calidez humana en Villavicencio y 
-            Acacías. Especialistas en diagnósticos de alta complejidad con resultados 
-            rápidos y confiables.
+            calificanos en google
           </p>
         </div>
 
@@ -36,8 +34,6 @@ function Footer() {
           </ul>
 
           <div className="footer-logos">
-            <img src={icontec} className="logo-icontec" alt="Icontec" />
-            <img src={iqnet} className="logo-iqnet" alt="IQNET" />
             <img src={supersalud} className="logo-supersalud" alt="Supersalud" />
           </div>
         </div>

@@ -38,53 +38,16 @@ function MainMenu() {
             <Link to="/">Inicio</Link>
           </li>
 
-          <li
-            className="dropdown"
-            onMouseEnter={() => setSubmenu("quienes")}
-            onMouseLeave={() => setSubmenu(null)}
-          >
-            <Link to="/about" onClick={closeMenu}>
-              Quiénes Somos
-            </Link>
-
-            <ul className={`submenu ${submenu === "quienes" ? "show" : ""}`}>
-              <li onClick={closeMenu}>
-                <Link to="/company">Nuestra Empresa</Link>
-              </li>
-              <li onClick={closeMenu}>
-                <Link to="/careers">Trabaje con Nosotros</Link>
-              </li>
-              <li onClick={closeMenu}>
-                <Link to="/specialists">Especialistas</Link>
-              </li>
-            </ul>
-          </li>
-
           <li onClick={closeMenu}>
             <Link to="/services">Servicio</Link>
           </li>
 
-          <li
-            className="dropdown"
-            onMouseEnter={() => setSubmenu("paciente")}
-            onMouseLeave={() => setSubmenu(null)}
-          >
-            <span>Paciente</span>
+          <li onClick={closeMenu}>
+            <Link to="/specialists">Especialistas</Link>
+          </li>
 
-            <ul className={`submenu ${submenu === "paciente" ? "show" : ""}`}>
-              <li onClick={closeMenu}>
-                <Link to="/patientrights">Derechos y Deberes</Link>
-              </li>
-              <li onClick={closeMenu}>
-                <Link to="/patientsecurity">Políticas de Seguridad</Link>
-              </li>
-              <li onClick={closeMenu}>
-                <Link to="/pqrs">PQRSF</Link>
-              </li>
-              <li onClick={closeMenu}>
-                <Link to="/ppss">PPSS</Link>
-              </li>
-            </ul>
+          <li onClick={closeMenu}>
+            <Link to="/location">Sedes</Link>
           </li>
 
           <li
@@ -93,7 +56,7 @@ function MainMenu() {
             onMouseLeave={() => setSubmenu(null)}
           >
             <Link to="/allies" onClick={closeMenu}>
-              Aliados
+              Convenios
             </Link>
             <ul className={`submenu ${submenu === "aliados" ? "show" : ""}`}>
               <li onClick={closeMenu}>
@@ -114,9 +77,47 @@ function MainMenu() {
             </ul>
           </li>
 
-          <li onClick={closeMenu}>
-            <Link to="/location">Sedes</Link>
+          <li
+            className="dropdown"
+            onMouseEnter={() => setSubmenu("paciente")}
+            onMouseLeave={() => setSubmenu(null)}
+          >
+            <span>Paciente</span>
+
+            <ul className={`submenu ${submenu === "paciente" ? "show" : ""}`}>
+              <li onClick={closeMenu}>
+                <Link to="/patientrights">Derechos y Deberes</Link>
+              </li>
+              <li onClick={closeMenu}>
+                <Link to="/patientsecurity">Políticas de Seguridad</Link>
+              </li>
+              <li onClick={closeMenu}>
+                <Link to="/pqrss">PQRSF</Link>
+              </li>
+              <li onClick={closeMenu}>
+                <Link to="/ppss">PPSS</Link>
+              </li>
+            </ul>
           </li>
+
+          <li
+            className="dropdown"
+            onMouseEnter={() => setSubmenu("quienes")}
+            onMouseLeave={() => setSubmenu(null)}
+          >
+            <Link to="/about" onClick={closeMenu}>
+              Quiénes Somos
+            </Link>
+
+            <ul className={`submenu ${submenu === "quienes" ? "show" : ""}`}>
+              <li onClick={closeMenu}>
+                <Link to="/company">Nuestra Empresa</Link>
+              </li>
+              <li onClick={closeMenu}>
+                <Link to="/careers">Trabaje con Nosotros</Link>
+              </li>
+            </ul>
+          </li>     
 
           <li onClick={closeMenu}>
             <a

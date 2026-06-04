@@ -8,8 +8,8 @@ function Home() {
   return (
     <main className="home-page">
       <Hero />
-      <AboutSummary />
       <ServicesPreview />
+      <AboutSummary />
       <LocationsPreview />
     </main>
   );
