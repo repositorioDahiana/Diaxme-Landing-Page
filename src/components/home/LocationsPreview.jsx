@@ -1,10 +1,7 @@
 import { useMemo, useState } from "react";
 
-import losRosalesImg from "../../assets/images/Fondo.jpg";
+import losRosalesImg from "../../assets/images/Sede1.jpg";
 import comfamiliarImg from "../../assets/images/Fondo.jpg";
-import sanRafaelImg from "../../assets/images/Fondo.jpg";
-import centroMedicoImg from "../../assets/images/Fondo.jpg";
-import pinaresImg from "../../assets/images/Fondo.jpg";
 import ubicacionIcon from "../../assets/Iconos/Ubicacion.png";
 import relojIcon from "../../assets/Iconos/Tiempo.png";
 

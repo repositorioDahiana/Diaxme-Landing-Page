@@ -1,31 +1,34 @@
 import { Link } from "react-router-dom";
-import doctor1 from "../../assets/images/Fondo.jpg"; // Placeholder
+import doctor1 from "../../assets/images/DrYury.jpeg"; 
+import doctor2 from "../../assets/images/DrPerez.jpeg"; 
+import doctor3 from "../../assets/images/DrGarcia.jpeg"; 
+import doctor0 from "../../assets/images/Fondo.jpg";
 
 function SpecialistsPreview() {
   const specialists = [
     {
       id: 1,
-      name: "Dr. Carlos Ruiz",
-      specialty: "Radiología Médica",
-      subspecialty: "Neurorradiología",
-      experience: "15 años",
+      name: "Dr. Yury",
+      specialty: "??",
+      subspecialty: "??",
+      experience: "?? años",
       image: doctor1,
     },
     {
       id: 2,
-      name: "Dra. Ana López",
-      specialty: "Radiología Médica",
-      subspecialty: "Radiología Pediátrica",
-      experience: "10 años",
-      image: doctor1,
+      name: "Dr. Perez",
+      specialty: "??",
+      subspecialty: "??",
+      experience: "?? años",
+      image: doctor2,
     },
     {
       id: 3,
-      name: "Dr. Luis Gómez",
-      specialty: "Radiología Médica",
-      subspecialty: "Imágenes de la Mujer",
-      experience: "12 años",
-      image: doctor1,
+      name: "Dr. Willsom Garcia",
+      specialty: "??",
+      subspecialty: "??",
+      experience: "?? años",
+      image: doctor3,
     },
     {
       id: 4,
@@ -33,7 +36,7 @@ function SpecialistsPreview() {
       specialty: "Radiología Médica",
       subspecialty: "Radiología Intervencionista",
       experience: "8 años",
-      image: doctor1,
+      image: doctor0,
     },
   ];
 

@@ -112,7 +112,7 @@ function AboutSummary() {
         <div className="about-summary__highlight">
           <span className="about-summary__dot"></span>
           <p>
-            Más de <strong>500,000 pacientes</strong> han confiado en nosotros
+            Más de <strong>300,000 pacientes</strong> han confiado en nosotros
             para su diagnóstico médico.
           </p>
         </div>

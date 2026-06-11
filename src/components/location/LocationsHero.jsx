@@ -24,8 +24,7 @@ function LocationsHero() {
           </h1>
 
           <p className="locations-hero__description">
-            Estamos presentes en tres ciudades del Eje Cafetero con la mejor
-            tecnología en imágenes diagnósticas y atención humanizada.
+            Texto ?
           </p>
 
           {/* STATS */}
@@ -42,7 +41,7 @@ function LocationsHero() {
               <div className="locations-hero__text">
 
                 <span className="locations-hero__label">
-                  8 Sedes
+                  2 Sedes
                 </span>
 
                 <span className="locations-hero__desc">
@@ -64,7 +63,7 @@ function LocationsHero() {
               <div className="locations-hero__text">
 
                 <span className="locations-hero__label">
-                  3 Ciudades
+                  2 Ciudades
                 </span>
 
                 <span className="locations-hero__desc">
