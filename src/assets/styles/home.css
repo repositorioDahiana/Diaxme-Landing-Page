@@ -725,7 +725,7 @@ body {
   }
 }
 
-/* ==================== SERVICES PREVIEW ==================== */
+/* ==================== SERVICES PREVIEW (DIAXME BRAND) ==================== */
 .services-preview {
   position: relative;
   overflow: hidden;
@@ -738,37 +738,15 @@ body {
 }
 
 .services-preview__container {
-  max-width: 1280px;
+  max-width: 1340px;
   margin: 0 auto;
 }
 
+/* HEADER */
 .services-preview__header {
   max-width: 860px;
   margin: 0 auto 46px;
   text-align: center;
-}
-
-/* INSIGNIA: Cambiada de azul brillante a un tono borgoña pastel muy discreto */
-.services-preview__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 18px;
-  margin-bottom: 22px;
-  border: 1px solid rgba(110, 200, 216, 0.25);
-  border-radius: var(--radius-full);
-  background: rgba(110, 200, 216, 0.06);
-  color: var(--color-brand-main); /* Tu Borgoña Corporativo */
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-.services-preview__badge-dot {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--color-brand-medium);
 }
 
 .services-preview__title {
@@ -807,7 +785,6 @@ body {
   justify-content: center;
 }
 
-/* Botón principal superior */
 .services-preview__all-button {
   display: inline-flex;
   align-items: center;
@@ -821,8 +798,6 @@ body {
   text-decoration: none;
   white-space: nowrap;
   background: var(--gradient-button);
-  background-size: 300% 300%;
-  animation: gradientMove 6s ease infinite;
   box-shadow: var(--shadow-button);
   transition: var(--transition-fast);
 }
@@ -832,178 +807,87 @@ body {
   box-shadow: var(--shadow-button-hover);
 }
 
-.services-preview__grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:24px;
-}
-
-/* TARJETAS DE SERVICIOS - ESTILOS MEJORADOS */
-.service-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: 20px;
-  background: var(--color-white);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
-  border: 1px solid var(--color-border-light);
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(110, 200, 216, 0.15);
-  border-color: rgba(110, 200, 216, 0.3);
-}
-
-.service-card__image-container {
+/* CONTENEDOR DEL CARRUSEL */
+.services-preview__carousel-container {
   position: relative;
   width: 100%;
-  height: 220px;
-  overflow: hidden;
 }
 
-.service-card__image {
+.services-preview__carousel-wrapper {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 15px 0;
 }
 
-.service-card:hover .service-card__image {
-  transform: scale(1.08);
+.services-preview__carousel-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
-.service-card__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
-  opacity: 0;
+.services-preview__carousel {
   display: flex;
-  align-items: flex-end;
-  padding: 20px;
-  transition: opacity 0.3s ease;
+  gap: 24px;
+  width: max-content;
 }
 
-.service-card:hover .service-card__overlay {
-  opacity: 1;
-}
-
-.service-card__overlay-text {
-  color: white;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transform: translateY(10px);
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover .service-card__overlay-text {
-  transform: translateY(0);
-}
-
-.service-card__content {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.service-card__title {
-  margin-bottom: 12px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-text-dark);
-  font-family: var(--font-title);
-}
-
-.service-card__desc {
-  margin-bottom: 24px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--color-text-body);
-  flex: 1;
-}
-
-.service-card__actions {
-  display: flex;
-  gap: 12px;
-  margin-top: auto;
-}
-
-.service-card__actions .btn {
-  flex: 1;
-  padding: 10px 14px;
-  font-size: 0.85rem;
-}
-
-/* TARJETAS: Se eliminaron los brillos e intensidades pesadas */
+/* TARJETAS */
 .services-preview__card {
   position: relative;
+  width: calc((1340px - (24px * 2)) / 3); 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  min-height: unset;
-  padding: 22px;
+  align-items: center;
+  text-align: center;
+  min-height: 420px;
+  padding: 28px;
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-md);
   background: var(--color-white);
-  box-shadow: 0 10px 28px rgba(30, 34, 41, 0.03);
-  transition:
-    background 0.35s ease,
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.services-preview__card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.1);
+  z-index: 1;
+  transition: opacity 0.35s ease, transform 0.5s ease;
+}
+
+.services-preview__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(73, 80, 87, 0.4) 0%, rgba(24, 45, 50, 0.95) 100%);
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.35s ease;
+}
+
+.services-preview__card-body {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
 }
 
 .services-preview__top {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 14px;
+  margin-bottom: 16px;
+  width: 100%; 
 }
 
-.services-preview__card::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 4px;
-  border-radius: 0 0 28px 28px;
-  background: var(--gradient-line);
-  transition: width 0.35s ease;
-}
-
-/* HOVER SUAVE: Cambiado de azul intenso a un sutil degradado gris-blanco médico */
-.services-preview__card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(110, 200, 216, 0.2);
-  background: linear-gradient(
-    180deg,
-    #ffffff,
-    rgba(138, 138, 143, 0.05)
-  );
-  box-shadow: var(--shadow-card-hover);
-}
-
-.services-preview__card:hover::after {
-  width: 100%;
-}
-
-/* TARJETA DESTACADA: Adaptada a la suavidad de la nueva paleta */
-.services-preview__card--featured {
-  border-color: rgba(110, 200, 216, 0.15);
-  background: linear-gradient(
-    180deg,
-    #ffffff,
-    rgba(138, 138, 143, 0.03)
-  );
-  box-shadow: var(--shadow-card-hover);
-}
-
-/* CAJA DE ICONOS: Se eliminó el fondo azul eléctrico */
 .services-preview__icon-box {
   display: flex;
   align-items: center;
@@ -1011,129 +895,141 @@ body {
   flex-shrink: 0;
   width: 58px;
   height: 58px;
-  margin-bottom: 18px;
   border-radius: var(--radius-sm);
-  background: var(--bg-icon-brand); /* Fondo sutil borgoña */
-  box-shadow: 0 10px 20px rgba(30, 34, 41, 0.02);
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.services-preview__card:hover .services-preview__icon-box {
-  background: rgba(110, 200, 216, 0.12);
-  transform: translateY(-2px);
+  background: var(--bg-icon-brand); /* Corregido a fondo sutil Teal */
+  box-shadow: 0 10px 20px rgba(110, 200, 216, 0.05);
+  transition: all 0.3s ease;
 }
 
 .services-preview__icon {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+.services-preview__icon-box--large {
+  width: 80px; 
+  height: 80px;
+}
+
+.services-preview__icon--large {
+  width: 55px; 
+  height: 55px;
 }
 
 .services-preview__card-title {
-  margin-bottom: 12px;
-  font-size: 1.4rem;
-  line-height: 1.2;
+  font-size: 1.3rem;
+  line-height: 1.3;
   font-weight: 700;
   color: var(--color-text-dark);
+  transition: color 0.3s ease;
 }
 
 .services-preview__card-description {
-  margin-bottom: 14px;
-  font-size: 0.9rem;
+  margin-bottom: 24px;
+  font-size: 0.92rem;
   line-height: 1.6;
   color: var(--color-text-body);
+  flex-grow: 1;
+  transition: color 0.3s ease;
 }
 
-/* Botón interno de cada tarjeta con degradado animado suave */
 .services-preview__card-button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
+  padding: 9px 16px;
   border-radius: var(--radius-full);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-white);
   text-decoration: none;
   background: var(--gradient-button);
-  background-size: 300% 300%;
-  animation: gradientMove 6s ease infinite;
   box-shadow: var(--shadow-button);
   transition: var(--transition-fast);
+  align-self: center; 
 }
 
-.services-preview__card-button:hover {
-  transform: translateY(-2px);
+/* HOVER DE LAS TARJETAS */
+.services-preview__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: transparent;
+}
+
+.services-preview__card:hover .services-preview__card-bg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.services-preview__card:hover .services-preview__card-overlay {
+  opacity: 1;
+}
+
+.services-preview__card:hover .services-preview__card-title {
+  color: var(--color-white);
+}
+
+.services-preview__card:hover .services-preview__card-description {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.services-preview__card:hover .services-preview__icon-box {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.services-preview__card:hover .services-preview__icon {
+  filter: brightness(0) invert(1);
+}
+
+.services-preview__card:hover .services-preview__card-button {
+  background: var(--color-white);
+  color: var(--color-brand-dark); /* Texto cambia al Teal oscuro corporativo */
+  box-shadow: none;
+}
+
+/* FLECHAS DE NAVEGACIÓN */
+.services-preview__arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-card);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-brand-main); /* Cambiado a Teal Principal */
+  transition: var(--transition-base);
+}
+
+.services-preview__arrow-btn:hover {
+  background: var(--gradient-button);
+  color: var(--color-white);
+  transform: translateY(-50%) scale(1.08);
   box-shadow: var(--shadow-button-hover);
 }
 
-.services-preview__arrow {
-  font-size: 0.9rem;
-  line-height: 1;
-}
+.services-preview__arrow-btn.left { left: 20px; }
+.services-preview__arrow-btn.right { right: 20px; }
 
-.services-preview__card-title-line {
-  display: block;
-}
-
-/* ==================== RESPONSIVE SERVICES ==================== */
-@media (max-width: 1100px) {
-  .services-preview__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .services-preview {
-    padding: 72px 16px;
-  }
-
-  .services-preview__description {
-    font-size: 1rem;
-  }
-
-  .services-preview__grid {
-    gap: 18px;
-  }
-
+/* RESPONSIVE */
+@media (max-width: 1200px) {
   .services-preview__card {
-    padding: 24px;
-    border-radius: var(--radius-md);
-  }
-
-  .services-preview__icon-box {
-    width: 62px;
-    height: 62px;
-    margin-bottom: 20px;
-    border-radius: var(--radius-sm);
-  }
-
-  .services-preview__icon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .services-preview__card-title {
-    font-size: 1.5rem;
-  }
-
-  .services-preview__card-description {
-    font-size: 0.98rem;
+    width: calc((100vw - 80px) / 2);
   }
 }
 
-@media (max-width: 560px) {
-  .services-preview__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .services-preview__title {
-    font-size: 2rem;
-  }
-
-  .services-preview__all-button {
-    width: 100%;
-    justify-content: center;
+@media (max-width: 680px) {
+  .services-preview__card {
+    width: calc(100vw - 60px);
+    padding: 22px;
   }
 }
 
