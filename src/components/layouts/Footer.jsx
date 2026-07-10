@@ -2,7 +2,7 @@ import logo from "../../assets/Iconos/logo-diaxme.png";
 import icontec from "../../assets/Iconos/icontec.png";
 import iqnet from "../../assets/Iconos/iqnet.png";
 import supersalud from "../../assets/Iconos/supersalud.png";
-import telefono from "../../assets/Iconos/telefono.png";
+import telefono from "../../assets/Iconos/Telefono.png";
 import email from "../../assets/Iconos/email.png";
 import ubicacion from "../../assets/Iconos/Ubicacion.png";
 import google from "../../assets/Iconos/google.png";
