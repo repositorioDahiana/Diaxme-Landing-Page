@@ -149,14 +149,13 @@ body {
 .about-hero {
   position: relative;
   width: 100%;
-  min-height: 78vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
-  overflow: hidden;
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 /* =====================================================
@@ -737,23 +736,21 @@ body {
   gap: 25px;
 }
 
-/* CARD: Adaptada al degradado Teal corporativo agradable */
+/* CARD: Transparente y adaptada a colores Diaxme */
 .value-card {
   padding: 30px 22px;
   border-radius: var(--radius-md);
 
-  border: 1px solid rgba(108, 117, 125, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 
-  background: linear-gradient(
-    135deg,
-    #6EC8D8 0%,
-    #21bcae 60%,
-    #5BBFD0 100%
-  );
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-  color: var(--color-white);
+  color: var(--color-text-body);
 
-  box-shadow: 0 10px 28px rgba(110, 200, 216, 0.12);
+  box-shadow: 0 10px 28px rgba(110, 200, 216, 0.08);
 
   transition: var(--transition-base);
 }
@@ -762,14 +759,10 @@ body {
 .value-card:hover {
   transform: translateY(-6px);
 
-  background: linear-gradient(
-    135deg,
-    #5BBFD0 0%,
-    #6EC8D8 60%,
-    #5BBFD0 100%
-  );
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(110, 200, 216, 0.4);
 
-  box-shadow: 0 18px 34px rgba(110, 200, 216, 0.18);
+  box-shadow: 0 18px 34px rgba(110, 200, 216, 0.2);
 }
 
 /* ICONO (CUADRO BLANCO 🔥) */
@@ -785,8 +778,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  background: var(--color-white);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: rgba(110, 200, 216, 0.1);
+  border: 1px solid rgba(110, 200, 216, 0.2);
+  box-shadow: 0 4px 10px rgba(110, 200, 216, 0.05);
 }
 
 /* ICONO IMG */
@@ -801,13 +795,14 @@ body {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 10px;
+  color: var(--color-text-dark);
 }
 
 /* TEXTO */
 .value-card p {
   font-size: 0.85rem;
   line-height: 1.6;
-  opacity: 0.95;
+  color: var(--color-text-body);
   margin: 0;
 }
 

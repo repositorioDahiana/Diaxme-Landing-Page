@@ -1,7 +1,7 @@
-import experienciaIcon from "../../assets/Iconos/email.png";
-import pacientesIcon from "../../assets/Iconos/email.png";
-import sedesIcon from "../../assets/Iconos/email.png";
-import empresasIcon from "../../assets/Iconos/email.png";
+import experienciaIcon from "../../assets/Iconos/Tiempo.png";
+import pacientesIcon from "../../assets/Iconos/paciente.png";
+import sedesIcon from "../../assets/Iconos/ciudad.png";
+import empresasIcon from "../../assets/Iconos/hospital.png";
 
 function AboutIntro() {
   return (
@@ -10,7 +10,7 @@ function AboutIntro() {
       {/* FRASE */}
       <div className="about-intro__quote">
         <p>
-          “”
+          “Imágenes que diagnostican, tecnología que cuida, atención que da tranquilidad. En Diaxme, tu salud está en las mejores manos.”
         </p>
       </div>
 

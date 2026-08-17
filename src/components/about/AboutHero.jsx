@@ -1,4 +1,4 @@
-import historiaBg from "../../assets/images/Fondo.jpg";
+import historiaBg from "../../assets/images/quienes.png";
 
 import sedesIcon from "../../assets/Iconos/email.png";
 import isoIcon from "../../assets/Iconos/email.png";
@@ -25,43 +25,8 @@ function AboutHero() {
           </h1>
 
           <p className="about-hero__description">
-            ?? Texto
+            Somos un centro médico especializado en imágenes diagnósticas de alta precisión. Combinamos tecnología de vanguardia, rigor científico y una atención cálida para brindar respuestas oportunas que cuidan lo más valioso: tu salud.
           </p>
-        </div>
-
-        {/* STATS */}
-        <div className="about-hero__stats">
-
-          {/* Card 1 */}
-          <article className="about-hero__statCard">
-            <img src={sedesIcon} className="about-hero__statIcon" />
-
-            <div className="about-hero__statText">
-              <strong>+2 sedes</strong>
-              <span>en Colombia</span>
-            </div>
-          </article>
-
-          {/* Card 2 */}
-          <article className="about-hero__statCard">
-            <img src={isoIcon} className="about-hero__statIcon" />
-
-            <div className="about-hero__statText">
-              <strong>ISO ?</strong>
-              <span>Certificados</span>
-            </div>
-          </article>
-
-          {/* Card 3 */}
-          <article className="about-hero__statCard">
-            <img src={pacientesIcon} className="about-hero__statIcon" />
-
-            <div className="about-hero__statText">
-              <strong>+300K</strong>
-              <span>Pacientes</span>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>

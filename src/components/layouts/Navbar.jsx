@@ -24,7 +24,7 @@ function Navbar() {
           </a>
 
           <a
-            href="https://cedicaf.com/"
+            href="https://www.cedicaf.com/cedicaf/"
             target="_blank"
             rel="noopener noreferrer"
           >

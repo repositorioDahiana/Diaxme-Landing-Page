@@ -1,7 +1,5 @@
-import historia1 from "../../assets/images/Fondo.jpg";
-import historia2 from "../../assets/images/Fondo.jpg";
-import historia3 from "../../assets/images/Fondo.jpg";
-import historia4 from "../../assets/images/Fondo.jpg";
+import historia3 from "../../assets/images/Sede1.jpg";
+import historia4 from "../../assets/images/compania.png";
 
 function HistoryTimeline() {
   return (

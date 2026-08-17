@@ -1,18 +1,18 @@
 // ICONOS
-import icon1 from "../../assets/Iconos/email.png";
-import icon2 from "../../assets/Iconos/email.png";
-import icon3 from "../../assets/Iconos/email.png";
-import icon4 from "../../assets/Iconos/email.png";
-import icon5 from "../../assets/Iconos/email.png";
-import icon6 from "../../assets/Iconos/email.png";
-import icon7 from "../../assets/Iconos/email.png";
-import icon8 from "../../assets/Iconos/email.png";
-import icon9 from "../../assets/Iconos/email.png";
-import icon10 from "../../assets/Iconos/email.png";
-import icon11 from "../../assets/Iconos/email.png";
-import icon12 from "../../assets/Iconos/email.png";
-import icon13 from "../../assets/Iconos/email.png";
-import icon14 from "../../assets/Iconos/email.png";
+import icon1 from "../../assets/Iconos/atencion.png";
+import icon2 from "../../assets/Iconos/comunicacion.png";
+import icon3 from "../../assets/Iconos/informacion.png";
+import icon4 from "../../assets/Iconos/legal.png";
+import icon5 from "../../assets/Iconos/equipo.png";
+import icon6 from "../../assets/Iconos/seguridad.png";
+import icon7 from "../../assets/Iconos/retencion.png";
+import icon8 from "../../assets/Iconos/Ferrari2.png";
+import icon9 from "../../assets/Iconos/terminos.png";
+import icon10 from "../../assets/Iconos/usuario.png";
+import icon11 from "../../assets/Iconos/canales.png";
+import icon12 from "../../assets/Iconos/lupa.png";
+import icon13 from "../../assets/Iconos/rechazo.png";
+import icon14 from "../../assets/Iconos/estres.png";
 
 const rights = [
   {

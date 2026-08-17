@@ -16,6 +16,7 @@ import Pqrs from "./pages/Pqrs";
 import Ppss from "./pages/Ppss";
 import Allies from "./pages/Allies";
 import Location from "./pages/Location";
+import Services360 from "./pages/Services360";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/ppss" element = {<Ppss />} />
         <Route path="/allies" element = {<Allies />} />
         <Route path="/location" element = {<Location />} />
+        <Route path="/services360" element = {<Services360 />} />
       </Routes>
 
       <Footer />

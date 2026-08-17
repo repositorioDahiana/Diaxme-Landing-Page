@@ -14,7 +14,7 @@ function AlliesIntro() {
         </h2>
 
         <p className="allies-intro__description">
-          ?? Texto
+          Facilitamos tu proceso de atención mediante convenios directos que optimizan tiempos de autorización y agilizan la entrega de tus resultados con total transparencia.
         </p>
 
         <a

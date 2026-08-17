@@ -1,4 +1,4 @@
-import empresaImg from "../../assets/images/Fondo.jpg";
+import empresaImg from "../../assets/images/empresa.jpg";
 
 function CompanyHero() {
   return (
@@ -13,7 +13,7 @@ function CompanyHero() {
           </h1>
 
           <p className="company-hero__description">
-            ?? Texto
+            En Diaxme integramos tecnología médica de punta y un equipo humano altamente capacitado para ofrecer diagnósticos por imagen de máxima precisión. Innovamos día a día para brindarte una atención ágil, segura y confiable.
           </p>
 
           {/* Cambiado a la clase del botón borgoña premium */}

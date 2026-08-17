@@ -1,4 +1,4 @@
-import especialistasHero from "../../assets/images/Fondo.jpg";
+import especialistasHero from "../../assets/images/Especialista.jpg";
 
 function SpecialistsHero() {
   return (
@@ -16,7 +16,7 @@ function SpecialistsHero() {
           </h1>
 
           <p className="specialists-hero__description">
-            ?? Texto
+            Médicos subespecialistas apasionados por la salud, respaldados por años de experiencia y la tecnología más avanzada para brindarte diagnósticos certeros y confiables.
           </p>
 
           <div className="specialists-hero__actions">

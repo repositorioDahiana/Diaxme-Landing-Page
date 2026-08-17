@@ -1,10 +1,10 @@
-import securityMainIcon from "../../assets/Iconos/email.png";
-import usuarioIcon from "../../assets/Iconos/email.png";
-import qualityIcon from "../../assets/Iconos/email.png";
-import cultureIcon from "../../assets/Iconos/email.png";
-import reportIcon from "../../assets/Iconos/email.png";
-import analysisIcon from "../../assets/Iconos/email.png";
-import familyIcon from "../../assets/Iconos/email.png";
+import securityMainIcon from "../../assets/Iconos/compromiso.png";
+import usuarioIcon from "../../assets/Iconos/equipo.png";
+import qualityIcon from "../../assets/Iconos/archivo.png";
+import cultureIcon from "../../assets/Iconos/cirujano.png";
+import reportIcon from "../../assets/Iconos/escribiendo.png";
+import analysisIcon from "../../assets/Iconos/contrato.png";
+import familyIcon from "../../assets/Iconos/retencion.png";
 
 function PatientPolicy() {
   return (

@@ -38,8 +38,17 @@ function MainMenu() {
             <Link to="/">Inicio</Link>
           </li>
 
-          <li onClick={closeMenu}>
-            <Link to="/services">Servicio</Link>
+          <li
+            className="dropdown"
+            onMouseEnter={() => setSubmenu("servicios")}
+            onMouseLeave={() => setSubmenu(null)}
+          >
+            <Link to="/services" onClick={(e) => handleDropdownClick(e, "servicios")}>Servicios</Link>
+            <ul className={`submenu ${submenu === "servicios" ? "show" : ""}`}>
+              <li onClick={closeMenu}>
+                <Link to="/services360">Programas 360</Link>
+              </li>
+            </ul>
           </li>
 
           <li onClick={closeMenu}>
@@ -92,7 +101,7 @@ function MainMenu() {
                 <Link to="/patientsecurity">Políticas de Seguridad</Link>
               </li>
               <li onClick={closeMenu}>
-                <Link to="/pqrss">PQRSF</Link>
+                <Link to="/pqrs">PQRS</Link>
               </li>
               <li onClick={closeMenu}>
                 <Link to="/ppss">PPSS</Link>

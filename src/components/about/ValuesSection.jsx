@@ -1,9 +1,9 @@
-import bgValores from "../../assets/images/Fondo.jpg";
+import bgValores from "../../assets/images/valores.png";
 
-import pasionIcon from "../../assets/Iconos/email.png";
-import transparenciaIcon from "../../assets/Iconos/email.png";
-import empatiaIcon from "../../assets/Iconos/email.png";
-import respetoIcon from "../../assets/Iconos/email.png";
+import pasionIcon from "../../assets/Iconos/pasion.png";
+import transparenciaIcon from "../../assets/Iconos/lupa.png";
+import empatiaIcon from "../../assets/Iconos/Participacion.png";
+import respetoIcon from "../../assets/Iconos/comoparticipar.png";
 
 function ValuesSection() {
   return (

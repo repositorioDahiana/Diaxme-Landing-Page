@@ -1,9 +1,9 @@
-import bienestarIcon from "../../assets/Iconos/email.png";
-import formacionIcon from "../../assets/Iconos/email.png";
-import tecnologiaIcon from "../../assets/Iconos/email.png";
-import estabilidadIcon from "../../assets/Iconos/email.png";
-import equipoIcon from "../../assets/Iconos/email.png";
-import crecimientoIcon from "../../assets/Iconos/email.png";
+import bienestarIcon from "../../assets/Iconos/carrera.png";
+import formacionIcon from "../../assets/Iconos/capacitacion.png";
+import tecnologiaIcon from "../../assets/Iconos/Ferrari1.png";
+import estabilidadIcon from "../../assets/Iconos/flexible.png";
+import equipoIcon from "../../assets/Iconos/interesado.png";
+import crecimientoIcon from "../../assets/Iconos/estrategia.png";
 
 function CareersBenefits() {
   return (

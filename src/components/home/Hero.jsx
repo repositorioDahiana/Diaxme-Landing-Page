@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import tecnologiaHero from "../../assets/images/Fondo.jpg";
-import especialistasHero from "../../assets/images/Fondo.jpg";
-import clinicaHero from "../../assets/images/Fondo.jpg";
+
+import tecnologiaHero from "../../assets/images/Home1.jpg";
+import especialistasHero from "../../assets/images/Home2.jpg";
+import clinicaHero from "../../assets/images/Home3.jpg";
+
 import resultadosIcon from "../../assets/Iconos/Resultados.png";
 import agendarIcon from "../../assets/Iconos/paciente.png";
 import experienciaIcon from "../../assets/Iconos/Tiempo.png";

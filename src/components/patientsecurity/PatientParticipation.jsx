@@ -1,9 +1,9 @@
-import participationIcon from "../../assets/Iconos/email.png";
-import contributivoIcon from "../../assets/Iconos/email.png";
-import subsidiadoIcon from "../../assets/Iconos/email.png";
-import especialIcon from "../../assets/Iconos/email.png";
-import segurosIcon from "../../assets/Iconos/email.png";
-import jovenesIcon from "../../assets/Iconos/email.png";
+import participationIcon from "../../assets/Iconos/Participacion.png";
+import contributivoIcon from "../../assets/Iconos/negocio.png";
+import subsidiadoIcon from "../../assets/Iconos/impacto.png";
+import especialIcon from "../../assets/Iconos/especialista.png";
+import segurosIcon from "../../assets/Iconos/seguro-medico.png";
+import jovenesIcon from "../../assets/Iconos/chico.png";
 
 function PatientParticipation() {
   return (
@@ -21,7 +21,7 @@ function PatientParticipation() {
           </h2>
 
           <p className="patient-participation__description">
-            RADIÓLOGOS ASOCIADOS ofrece sus servicios a usuarios afiliados
+            DIAXME ofrece sus servicios a usuarios afiliados
             al sistema General de Seguridad Social en Salud.
           </p>
 
@@ -48,7 +48,7 @@ function PatientParticipation() {
           <div className="patient-participation__content">
 
             <p>
-              RADIÓLOGOS ASOCIADOS ofrece sus servicios a usuarios afiliados
+              DIAXME ofrece sus servicios a usuarios afiliados
               al sistema General de Seguridad Social en Salud del régimen
               contributivo, subsidiado, especial y seguros privados, quienes
               tienen como derecho velar por la mejora continua de la calidad

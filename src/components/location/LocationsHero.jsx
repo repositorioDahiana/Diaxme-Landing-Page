@@ -1,8 +1,8 @@
-import heroBg from "../../assets/images/Fondo.jpg";
+import heroBg from "../../assets/images/sedes.jpg";
 
 // ICONOS
-import sedesIcon from "../../assets/Iconos/email.png";
-import ciudadesIcon from "../../assets/Iconos/email.png";
+import sedesIcon from "../../assets/Iconos/hospital.png";
+import ciudadesIcon from "../../assets/Iconos/ciudad.png";
 import horarioIcon from "../../assets/Iconos/email.png";
 
 function LocationsHero() {
@@ -24,7 +24,7 @@ function LocationsHero() {
           </h1>
 
           <p className="locations-hero__description">
-            Texto ?
+            Encuentra tu sede Diaxme más cercana y accede a servicios de imágenes diagnósticas con la mejor tecnología y atención preferencial.
           </p>
 
           {/* STATS */}
@@ -73,29 +73,6 @@ function LocationsHero() {
               </div>
 
             </div>
-
-            {/* CARD 3 */}
-            <div className="locations-hero__stat">
-
-              <img
-                src={horarioIcon}
-                alt="Atención"
-              />
-
-              <div className="locations-hero__text">
-
-                <span className="locations-hero__label">
-                  24/7 Atención
-                </span>
-
-                <span className="locations-hero__desc">
-                  Servicio hospitalario
-                </span>
-
-              </div>
-
-            </div>
-
           </div>
 
         </div>

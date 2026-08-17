@@ -1,62 +1,51 @@
-import img1 from "../../assets/images/DrGarcia.jpeg";
-import img2 from "../../assets/images/DrPerez.jpeg";
-import img3 from "../../assets/images/DrYury.jpeg";
-import img4 from "../../assets/images/Fondo.jpg";
-import img5 from "../../assets/images/Fondo.jpg";
-import img6 from "../../assets/images/Fondo.jpg";
-import img7 from "../../assets/images/Fondo.jpg";
-import img8 from "../../assets/images/Fondo.jpg";
-import img9 from "../../assets/images/Fondo.jpg";
-import img10 from "../../assets/images/Fondo.jpg";
-import img11 from "../../assets/images/Fondo.jpg";
-import img12 from "../../assets/images/Fondo.jpg";
-import img13 from "../../assets/images/Fondo.jpg";
-import img14 from "../../assets/images/Fondo.jpg";
-import img15 from "../../assets/images/Fondo.jpg";
+import React from "react";
+import doctor1 from "../../assets/images/Doctor1.jpeg"; 
+import doctor2 from "../../assets/images/Doctor2.jpeg"; 
+import doctor3 from "../../assets/images/Doctor3.jpeg"; 
+import doctor0 from "../../assets/images/Fondo.jpg";
 
 const specialists = [
   {
     id: 1,
-    name: "Dr. Carlos Andrés Mejía",
-    specialty: "Radiología Diagnóstica",
-    sub: "Neurorradiología",
-    exp: "18 años de experiencia",
-    tags: ["Resonancia Magnética", "Neurorradiología"],
-    image: img1,
+    name: "Dr. Yury",
+    specialty: "Radiología Médica",
+    subspecialty: "Diagnóstico por Imagen",
+    exp: "10+ años de experiencia",
+    tags: ["Resonancia", "Tomografía"],
+    image: doctor1,
   },
   {
     id: 2,
-    name: "Dra. Marcela Ríos Ospina",
-    specialty: "Radiología e Imágenes Diagnósticas",
-    sub: "Radiología de Mama",
-    exp: "14 años de experiencia",
-    tags: ["Mamografía", "Ecografía Mamaria"],
-    image: img2,
+    name: "Dr. Perez",
+    specialty: "Radiología Intervencionista",
+    subspecialty: "Procedimientos Mínimamente Invasivos",
+    exp: "8+ años de experiencia",
+    tags: ["Biopsias", "Drenajes"],
+    image: doctor2,
   },
-  // 👇 puedes repetir patrón hasta 15
   {
     id: 3,
-    name: "Dr. Hernán Darío Zuluaga",
-    specialty: "Cardiología",
-    sub: "Ecocardiografía",
-    exp: "22 años de experiencia",
-    tags: ["Ecocardiografía", "Holter"],
-    image: img3,
+    name: "Dr. Willsom Garcia",
+    specialty: "Medicina Nuclear",
+    subspecialty: "Tomografía y Resonancia",
+    exp: "12+ años de experiencia",
+    tags: ["TAC", "PET-CT"],
+    image: doctor3,
   },
   {
     id: 4,
-    name: "Dra. Paola Andrea Gómez",
-    specialty: "Radiología Intervencionista",
-    sub: "Procedimientos guiados",
-    exp: "11 años de experiencia",
-    tags: ["Biopsias", "Drenajes"],
-    image: img4,
+    name: "Dra. María Torres",
+    specialty: "Radiología Médica",
+    subspecialty: "Radiología Intervencionista",
+    exp: "6+ años de experiencia",
+    tags: ["Ecografía", "Doppler"],
+    image: doctor0,
   },
 ];
 
 function SpecialistsGrid() {
   return (
-    <section className="specialists-grid"  id="equipo">
+    <section className="specialists-grid" id="equipo">
       <div className="specialists-grid__container">
 
         {/* HEADER */}
@@ -90,15 +79,19 @@ function SpecialistsGrid() {
                   {doc.specialty}
                 </span>
 
-                <p className="specialist-card__sub">{doc.sub}</p>
+                {/* Corrección: Cambiado doc.sub por doc.subspecialty */}
+                <p className="specialist-card__sub">{doc.subspecialty}</p>
 
-                <div className="specialist-card__exp">
-                  ⏱ {doc.exp}
-                </div>
+                {/* Muestra experiencia si existe */}
+                {doc.exp && (
+                  <div className="specialist-card__exp">
+                    ⏱ {doc.exp}
+                  </div>
+                )}
 
-                {/* TAGS */}
+                {/* TAGS: Validación con encadenamiento opcional (?.) */}
                 <div className="specialist-card__tags">
-                  {doc.tags.map((tag, i) => (
+                  {doc.tags?.map((tag, i) => (
                     <span key={i}>{tag}</span>
                   ))}
                 </div>

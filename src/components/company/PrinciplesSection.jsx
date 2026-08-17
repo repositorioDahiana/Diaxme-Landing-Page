@@ -1,8 +1,8 @@
-import eficienciaIcon from "../../assets/Iconos/email.png";
-import servicioIcon from "../../assets/Iconos/email.png";
-import igualdadIcon from "../../assets/Iconos/email.png";
-import compromisoIcon from "../../assets/Iconos/email.png";
-import equipoIcon from "../../assets/Iconos/email.png";
+import eficienciaIcon from "../../assets/Iconos/estructura.png";
+import servicioIcon from "../../assets/Iconos/cirujano.png";
+import igualdadIcon from "../../assets/Iconos/compromiso.png";
+import compromisoIcon from "../../assets/Iconos/contribuyendo.png";
+import equipoIcon from "../../assets/Iconos/equipo.png";
 
 function PrinciplesSection() {
   return (

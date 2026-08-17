@@ -10,7 +10,6 @@ function About() {
         <CompanyHero />
         <HistoryTimeline />
         <PrincipleSection />
-        <TechnologySection />
     </main>
   );
 }

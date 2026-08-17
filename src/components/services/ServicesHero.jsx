@@ -1,38 +1,38 @@
 import { useState, useEffect } from "react";
 
-import img1 from "../../assets/images/Fondo.jpg";
-import img2 from "../../assets/images/Fondo.jpg";
-import img3 from "../../assets/images/Fondo.jpg";
+import img1 from "../../assets/images/Servicio1.jpg";
+import img2 from "../../assets/images/Servicio2.jpg";
+import img3 from "../../assets/images/Servicio3.jpg";
 
 const slides = [
   {
     title: (
       <>
-        Titulo
+        Diagnósticos de alta precisión para cuidar lo que más importa tu salud
       </>
     ),
     description:
-      "Texto",
+      "Accede a nuestro catálogo integral de servicios médicos: Resonancia Magnética, Mamografía Digital, Ecografía Doppler, Colposcopia y Sedación. Tecnología avanzada para diagnósticos oportunos y confiables.",
     image: img1,
   },
   {
     title: (
       <>
-        Titulo
+        Tecnología de vanguardia para estudios simples y de alta complejidad
       </>
     ),
     description:
-      "Texto",
+      "Realizamos Resonancia Magnética Convencional (cerebro, columna, articulaciones) y Resonancia Magnética Nuclear Especializada (cardíaca, multiparamétrica, vascular) con protocolos de máximo confort e imágenes en alta resolución.",
     image: img2,
   },
   {
     title: (
       <>
-        Titulo
+        Exámenes preventivos con atención cálida, privada y cero dolor
       </>
     ),
     description:
-      "Texto",
+      "Mamografía digital con baja radiación, evaluación ginecológica con Colposcopia y Doppler Scanning Vasos a Color. Además, contamos con servicio de Sedación para garantizarte una experiencia relajada y sin estrés.",
     image: img3,
   },
 ];

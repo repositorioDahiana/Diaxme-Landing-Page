@@ -1307,7 +1307,7 @@ body {
   }
 }
 
-/* ==================== SPECIALISTS PREVIEW ==================== */
+/* ==================== SPECIALISTS PREVIEW (CARRUSEL INTEGRADO) ==================== */
 .specialists-preview {
   position: relative;
   padding: 80px 20px;
@@ -1353,14 +1353,35 @@ body {
   border-radius: 4px;
 }
 
-.specialists-preview__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+/* CONTENEDOR CARRUSEL */
+.specialists-preview__carousel-container {
+  position: relative;
+  width: 100%;
   margin-bottom: 50px;
 }
 
+.specialists-preview__carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 10px 0;
+}
+
+.specialists-preview__carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.specialists-preview__carousel {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+}
+
+/* TARJETA INDIVIDUAL */
 .specialist-card {
+  width: 300px;
+  flex-shrink: 0;
   background: var(--bg-card);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-light);
@@ -1443,12 +1464,47 @@ body {
   text-align: center;
 }
 
+/* NAVEGACIÓN Y BOTONES FLOTANTES */
+.specialist-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  color: var(--color-text-dark);
+  border-radius: 50%;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  padding-bottom: 4px;
+}
+
+.specialist-nav-btn:hover {
+  background: var(--color-brand-main, #0a3d91);
+  color: var(--color-white);
+  border-color: var(--color-brand-main, #0a3d91);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.specialist-nav-btn--left { left: -15px; }
+.specialist-nav-btn--right { right: -15px; }
+
 .specialists-preview__actions {
   display: flex;
   justify-content: center;
 }
 
 @media (max-width: 768px) {
+  .specialist-nav-btn {
+    display: none;
+  }
   .specialists-preview {
     padding: 60px 20px;
   }

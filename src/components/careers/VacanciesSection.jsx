@@ -1,8 +1,8 @@
 import React from "react";
-import agenteIcon from "../../assets/Iconos/email.png";
-import atencionIcon from "../../assets/Iconos/email.png";
-import laboratorioIcon from "../../assets/Iconos/email.png";
-import cientificoIcon from "../../assets/Iconos/email.png";
+import agenteIcon from "../../assets/Iconos/agente.png";
+import atencionIcon from "../../assets/Iconos/asesoramiento.png";
+import laboratorioIcon from "../../assets/Iconos/doctor.png";
+import cientificoIcon from "../../assets/Iconos/cirujano.png";
 import {
   MapPin,
   Clock3,

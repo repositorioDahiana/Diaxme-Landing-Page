@@ -1,7 +1,7 @@
-import heroBg from "../../assets/images/Fondo.jpg";
-import aliadosIcon from "../../assets/Iconos/email.png";
-import coberturaIcon from "../../assets/Iconos/email.png";
-import tramitesIcon from "../../assets/Iconos/email.png";
+import heroBg from "../../assets/images/aliados.png";
+
+import aliadosIcon from "../../assets/Iconos/trato.png";
+import tramitesIcon from "../../assets/Iconos/agilidad.png";
 
 function AlliesHero() {
   return (
@@ -22,7 +22,7 @@ function AlliesHero() {
           </h1>
 
           <p className="allies-hero__description">
-            ?? Texto
+            Trabajamos de la mano con las principales entidades de salud y aseguradoras del país para garantizarte un acceso rápido, sin barreras y con el mejor respaldo a tus exámenes diagnósticos
           </p>
 
           {/* STATS */}
@@ -44,28 +44,6 @@ function AlliesHero() {
 
                 <span className="allies-hero__desc">
                   Entidades nacionales
-                </span>
-
-              </div>
-
-            </div>
-
-            {/* CARD 2 */}
-            <div className="allies-hero__stat">
-
-              <img
-                src={coberturaIcon}
-                alt="Cobertura total"
-              />
-
-              <div className="allies-hero__text">
-
-                <span className="allies-hero__label">
-                  Cobertura Total
-                </span>
-
-                <span className="allies-hero__desc">
-                  Todas las modalidades
                 </span>
 
               </div>

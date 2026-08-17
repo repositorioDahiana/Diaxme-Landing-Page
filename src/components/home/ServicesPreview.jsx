@@ -1,94 +1,111 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 
-import corazonIcon from "../../assets/Iconos/email.png";
-import radiologiaIcon from "../../assets/Iconos/email.png";
-import mujerIcon from "../../assets/Iconos/email.png";
-import resonanciaImg from "../../assets/images/Fondo.jpg"; 
-import tomografiaImg from "../../assets/images/Fondo.jpg";
-import ecografiaImg from "../../assets/images/Fondo.jpg";
-import mamografiaImg from "../../assets/images/Fondo.jpg"; 
-import radiologiaImg from "../../assets/images/Fondo.jpg";
-import dopplerImg from "../../assets/images/Fondo.jpg"; 
+import ServiceImag1 from "../../assets/images/Ferrari1.jpg";
+import ServiceImag2 from "../../assets/images/Ferrari2.jpg";
+import ServiceImag3 from "../../assets/images/Ferrari3.png";
+import ServiceImag4 from "../../assets/images/Ferrari4.png";
+import ServiceImag5 from "../../assets/images/Ferrari5.png";
+import ServiceImag6 from "../../assets/images/Ferrari6.png";
+import ServiceImag7 from "../../assets/images/Ferrari7.png";
+import ServiceImag8 from "../../assets/images/Ferrari8.jpg";
+import ServiceImag9 from "../../assets/images/Ferrari9.jpg";
+import ServiceImag10 from "../../assets/images/Ferrari10.webp";
 
-import fondoImg from "../../assets/images/Fondo.jpg";
-import emailIcon from "../../assets/Iconos/email.png";
+import Service1Icon from "../../assets/Iconos/Ferrari1.png";
+import Service2Icon from "../../assets/Iconos/Ferrari2.png";
+import Service3Icon from "../../assets/Iconos/Ferrari3.png";
+import Service4Icon from "../../assets/Iconos/Ferrari4.png";
+import Service5Icon from "../../assets/Iconos/Ferrari5.png";
+import Service6Icon from "../../assets/Iconos/Ferrari6.png";
+import Service7Icon from "../../assets/Iconos/Ferrari7.png";
+import Service8Icon from "../../assets/Iconos/Ferrari8.png";
+import Service9Icon from "../../assets/Iconos/Ferrari9.png";
+import Service10Icon from "../../assets/Iconos/Ferrari10.png";
+
 
 function ServicesPreview() {
   const carouselRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Array estructurado con tus servicios reales
   const services = [
     {
       id: 1,
-      title: "Resonancia Magnética Nuclear Especializada y Convencional",
-      bgImage: fondoImg,
-      icon: emailIcon,
-      description: "Estudios de alta precisión que permiten obtener imágenes detalladas del cuerpo para diagnósticos más seguros y oportunos.",
+      title: "Resonancia Magnética Nuclear Especializada",
+      bgImage: ServiceImag1,
+      icon: Service1Icon,
+      description: "Estudios de alta complejidad para casos específicos (cardiacos, vasculares, multiparamétricos). Tecnología avanzada de última generación para obtener diagnósticos de máxima precisión.",
       link: "/services",
     },
     {
       id: 2,
-      title: "Tomografía Computarizada Especializada y Convencional",
-      bgImage: fondoImg,
-      icon: emailIcon,
-      description: "Tecnología avanzada para detectar y evaluar múltiples condiciones médicas con rapidez y exactitud.",
-      link: "/services",
-    },
-    {
-      id: 3,
-      title: "Ecografía",
-      bgImage: fondoImg,
-      icon: emailIcon,
-      description: "Estudios por ultrasonido realizados con equipos modernos para una valoración segura, cómoda y en tiempo real.",
+      title: "Resonancia Magnética Convencional",
+      bgImage: ServiceImag2,
+      icon: Service2Icon,
+      description: "Evaluaciones de rutina rápidas y precisas para cerebro, columna y articulaciones. Un estudio indoloro y sin radiación para un diagnóstico oportuno.",
       link: "/services",
     },
     {
       id: 4,
-      title: "Doppler y Duplex Scanning Vasos a Color",
-      bgImage: fondoImg,
-      icon: emailIcon,
-      description: "Visualización avanzada de arterias y venas que permite diagnósticos vasculares más precisos. Evaluación especializada del flujo sanguíneo y la salud vascular mediante imágenes de alta definición.",
+      title: "Tomografía Computarizada Especializada y Convencional",
+      bgImage: ServiceImag3,
+      icon: Service3Icon,
+      description: "Tecnología avanzada para detectar y evaluar múltiples condiciones médicas con rapidez y exactitud.",
       link: "/services",
     },
     {
       id: 5,
-      title: "Mamografía",
-      bgImage: fondoImg,
-      icon: emailIcon,
-      description: "Diagnóstico preventivo y oportuno para el cuidado integral de la salud femenina.",
+      title: "Ecografía",
+      bgImage: ServiceImag4,
+      icon: Service4Icon,
+      description: "Estudios por ultrasonido realizados con equipos modernos para una valoración segura, cómoda y en tiempo real.",
       link: "/services",
     },
     {
       id: 6,
+      title: "Doppler y Duplex Scanning Vasos a Color",
+      bgImage: ServiceImag5,
+      icon: Service5Icon,
+      description: "Visualización avanzada de arterias y venas que permite diagnósticos vasculares más precisos. Evaluación especializada del flujo sanguíneo y la salud vascular mediante imágenes de alta definición.",
+      link: "/services",
+    },
+    {
+      id: 7,
+      title: "Mamografía",
+      bgImage: ServiceImag6,
+      icon: Service6Icon,
+      description: "Diagnóstico preventivo y oportuno para el cuidado integral de la salud femenina.",
+      link: "/services",
+    },
+    {
+      id: 8,
       title: "Radiología Convencional Digitalizada",
-      bgImage: fondoImg,
-      icon: emailIcon,
+      bgImage: ServiceImag7,
+      icon: Service7Icon,
       description: "Radiografías digitales con excelente calidad de imagen y resultados ágiles para una atención eficiente.",
       link: "/services",
     },
     {
-      id: 11,
+      id: 9,
       title: "Radiografía Panorámica de Columna (Goniometría u Ortograma)",
-      bgImage: fondoImg,
-      icon: emailIcon,
+      bgImage: ServiceImag8,
+      icon: Service8Icon,
       description: "Estudios especializados para evaluar postura, alineación y estructuras óseas de manera integral.",
       link: "/services",
     },
     {
-      id: 12,
+      id: 10,
       title: "Colposcopia",
-      bgImage: fondoImg,
-      icon: emailIcon,
+      bgImage: ServiceImag9,
+      icon: Service9Icon,
       description: "Procedimiento especializado para la prevención, evaluación y diagnóstico ginecológico.",
       link: "/services",
     },
     {
-      id: 13,
+      id: 11,
       title: "Sedación",
-      bgImage: fondoImg,
-      icon: emailIcon,
+      bgImage: ServiceImag10,
+      icon: Service10Icon,
       description: "Mayor comodidad y tranquilidad durante los procedimientos, bajo supervisión profesional y segura.",
       link: "/services",
     },

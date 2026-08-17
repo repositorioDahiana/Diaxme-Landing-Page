@@ -1,8 +1,8 @@
-import peticionIcon from "../../assets/Iconos/email.png";
-import quejaIcon from "../../assets/Iconos/email.png";
-import reclamoIcon from "../../assets/Iconos/email.png";
-import sugerenciaIcon from "../../assets/Iconos/email.png";
-import felicitacionIcon from "../../assets/Iconos/email.png";
+import peticionIcon from "../../assets/Iconos/escribiendo.png";
+import quejaIcon from "../../assets/Iconos/insatisfecho.png";
+import reclamoIcon from "../../assets/Iconos/reclamo.png";
+import sugerenciaIcon from "../../assets/Iconos/sugerencia.png";
+import felicitacionIcon from "../../assets/Iconos/premio.png";
 import { useState } from "react";
 
 function PQRSForm() {
@@ -329,7 +329,7 @@ function PQRSForm() {
           {/* BUTTONS */}
           <div className="pqrs-form__actions">
 
-            <button className="btn-base btn-primary-blue">
+            <button className="btn-base btn-primary-brand">
               Enviar PQRS
             </button>
 

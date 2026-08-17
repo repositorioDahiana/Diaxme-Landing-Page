@@ -1,12 +1,12 @@
-import duty1 from "../../assets/Iconos/email.png";
-import duty2 from "../../assets/Iconos/email.png";
-import duty3 from "../../assets/Iconos/email.png";
-import duty4 from "../../assets/Iconos/email.png";
-import duty5 from "../../assets/Iconos/email.png";
-import duty6 from "../../assets/Iconos/email.png";
-import duty7 from "../../assets/Iconos/email.png";
-import duty8 from "../../assets/Iconos/email.png";
-import duty9 from "../../assets/Iconos/email.png";
+import duty1 from "../../assets/Iconos/desinfectante.png";
+import duty2 from "../../assets/Iconos/instrucciones.png";
+import duty3 from "../../assets/Iconos/solidaridad.png";
+import duty4 from "../../assets/Iconos/alcanzar.png";
+import duty5 from "../../assets/Iconos/medicos.png";
+import duty6 from "../../assets/Iconos/archivo.png";
+import duty7 from "../../assets/Iconos/buenafe.png";
+import duty8 from "../../assets/Iconos/comunicacionclara.png";
+import duty9 from "../../assets/Iconos/contribuyendo.png";
 
 const duties = [
   {

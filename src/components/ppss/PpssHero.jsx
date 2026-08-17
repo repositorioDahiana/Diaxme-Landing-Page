@@ -1,7 +1,8 @@
-import heroBg from "../../assets/images/Fondo.jpg";
-import controlIcon from "../../assets/Iconos/email.png";
-import comunidadIcon from "../../assets/Iconos/email.png";
-import capacitacionIcon from "../../assets/Iconos/email.png";
+import heroBg from "../../assets/images/ppss.jpg";
+
+import controlIcon from "../../assets/Iconos/contrato.png";
+import comunidadIcon from "../../assets/Iconos/contribuyendo.png";
+import capacitacionIcon from "../../assets/Iconos/capacitacion.png";
 
 function PpssHero() {
   return (

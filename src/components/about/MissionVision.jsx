@@ -1,5 +1,5 @@
-import misionIcon from "../../assets/Iconos/email.png";
-import visionIcon from "../../assets/Iconos/email.png";
+import misionIcon from "../../assets/Iconos/mision-cumplida.png";
+import visionIcon from "../../assets/Iconos/evolucion.png";
 
 function MissionVision() {
   return (

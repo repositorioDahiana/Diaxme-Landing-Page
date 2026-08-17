@@ -1,10 +1,7 @@
 import { useMemo, useState } from "react";
 
-import losRosalesImg from "../../assets/images/Fondo.jpg";
-import comfamiliarImg from "../../assets/images/Fondo.jpg";
-import sanRafaelImg from "../../assets/images/Fondo.jpg";
-import centroMedicoImg from "../../assets/images/Fondo.jpg";
-import pinaresImg from "../../assets/images/Fondo.jpg";
+import Ubicacion1Img from "../../assets/images/Ubicacion1.png";
+import Ubicacion2Img from "../../assets/images/Fondo.jpg";
 
 import ubicacionIcon from "../../assets/Iconos/Ubicacion.png";
 import relojIcon from "../../assets/Iconos/email.png";
@@ -21,22 +18,14 @@ function LocationsPreview() {
     {
       id: 1,
       city: "Villavicencio",
-
-      image: losRosalesImg,
-
+      image: Ubicacion1Img,
       title: "Diaxme Sede Villavicencio",
-
       address: "Carrera 34 No. 15-33 Barrio Nuevo Ricaurte",
-
       maps:
         "https://www.google.com/maps/search/?api=1&query=Carrera+9+No+25-59+Pereira",
-
       schedule1: "Ambulatorios (L-S): 7:00 a.m. – 6:00 p.m.",
-
       schedule2: "Hospitalarios: 24 x 7",
-
       featured: false,
-
       studies: [
         "Texto",
         "Texto",
@@ -46,20 +35,13 @@ function LocationsPreview() {
     {
       id: 2,
       city: "Acacías",
-
-      image: comfamiliarImg,
-
+      image: Ubicacion2Img,
       title: "Diaxme Sede Acacías",
-
       address: "Calle 13 N° 16-58 Primer Piso",
-
       maps:
         "https://www.google.com/maps/search/?api=1&query=Avenida+Circunvalar+Pereira",
-
       schedule1: "L-V: 6:00 a.m. – 9:00 p.m.",
-
       schedule2: "S: 6:00 a.m. – 6:00 p.m.",
-
       featured: false,
 
       studies: [
