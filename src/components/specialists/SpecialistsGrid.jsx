@@ -17,14 +17,14 @@ const specialists = [
       name: "Dr. Rafael Eduardo Pérez Echavarría",
       specialty: "Medico Especialista en Radiología e Imágenes Diagnosticas",
       subspecialty: "",
-      image: doctor2,
+      image: doctor3,
     },
     {
       id: 3,
       name: "Dr William Garcia Rossi",
       specialty: "Médico Especialista en Radiología e Imágenes Diagnóstica",
       subspecialty: "",
-      image: doctor3,
+      image: doctor2,
     },
     {
       id: 4,
