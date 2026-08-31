@@ -2,46 +2,38 @@ import React from "react";
 import doctor1 from "../../assets/images/Doctor1.jpeg"; 
 import doctor2 from "../../assets/images/Doctor2.jpeg"; 
 import doctor3 from "../../assets/images/Doctor3.jpeg"; 
-import doctor0 from "../../assets/images/Fondo.jpg";
+import doctor4 from "../../assets/images/Doctor4.webp";
 
 const specialists = [
-  {
-    id: 1,
-    name: "Dr. Yury",
-    specialty: "Radiología Médica",
-    subspecialty: "Diagnóstico por Imagen",
-    exp: "10+ años de experiencia",
-    tags: ["Resonancia", "Tomografía"],
-    image: doctor1,
-  },
-  {
-    id: 2,
-    name: "Dr. Perez",
-    specialty: "Radiología Intervencionista",
-    subspecialty: "Procedimientos Mínimamente Invasivos",
-    exp: "8+ años de experiencia",
-    tags: ["Biopsias", "Drenajes"],
-    image: doctor2,
-  },
-  {
-    id: 3,
-    name: "Dr. Willsom Garcia",
-    specialty: "Medicina Nuclear",
-    subspecialty: "Tomografía y Resonancia",
-    exp: "12+ años de experiencia",
-    tags: ["TAC", "PET-CT"],
-    image: doctor3,
-  },
-  {
-    id: 4,
-    name: "Dra. María Torres",
-    specialty: "Radiología Médica",
-    subspecialty: "Radiología Intervencionista",
-    exp: "6+ años de experiencia",
-    tags: ["Ecografía", "Doppler"],
-    image: doctor0,
-  },
-];
+    {
+      id: 1,
+      name: "Dr Yuri Gutierrez Flores",
+      specialty: "Radiólogo Intervencionista",
+      subspecialty: "",
+      image: doctor1,
+    },
+    {
+      id: 2,
+      name: "Dr. Rafael Eduardo Pérez Echavarría",
+      specialty: "Medico Especialista en Radiología e Imágenes Diagnosticas",
+      subspecialty: "",
+      image: doctor2,
+    },
+    {
+      id: 3,
+      name: "Dr William Garcia Rossi",
+      specialty: "Médico Especialista en Radiología e Imágenes Diagnóstica",
+      subspecialty: "",
+      image: doctor3,
+    },
+    {
+      id: 4,
+      name: "Dr. Luis Fernando Grisales",
+      specialty: "Director Científico, Médico Especialista en radiología , Fellow en Próstata ",
+      subspecialty: "",
+      image: doctor4,
+    },
+  ];
 
 function SpecialistsGrid() {
   return (

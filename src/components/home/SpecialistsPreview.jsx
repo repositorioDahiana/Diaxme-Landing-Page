@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import doctor1 from "../../assets/images/Doctor1.jpeg"; 
 import doctor2 from "../../assets/images/Doctor2.jpeg"; 
 import doctor3 from "../../assets/images/Doctor3.jpeg"; 
-import doctor0 from "../../assets/images/Fondo.jpg";
+import doctor4 from "../../assets/images/Doctor4.webp";
 
 function SpecialistsPreview() {
   const carouselRef = useRef(null);
@@ -13,38 +13,38 @@ function SpecialistsPreview() {
   const specialists = [
     {
       id: 1,
-      name: "Dr. Yury",
-      specialty: "Radiología Médica",
-      subspecialty: "Diagnóstico por Imagen",
+      name: "Dr Yuri Gutierrez Flores",
+      specialty: "Radiólogo Intervencionista",
+      subspecialty: "",
       image: doctor1,
     },
     {
       id: 2,
-      name: "Dr. Perez",
-      specialty: "Radiología Intervencionista",
-      subspecialty: "Procedimientos Mínimamente Invasivos",
+      name: "Dr. Rafael Eduardo Pérez Echavarría",
+      specialty: "Medico Especialista en Radiología e Imágenes Diagnosticas",
+      subspecialty: "",
       image: doctor2,
     },
     {
       id: 3,
-      name: "Dr. Willsom Garcia",
-      specialty: "Medicina Nuclear",
-      subspecialty: "Tomografía y Resonancia",
+      name: "Dr William Garcia Rossi",
+      specialty: "Médico Especialista en Radiología e Imágenes Diagnóstica",
+      subspecialty: "",
       image: doctor3,
     },
     {
       id: 4,
-      name: "Dra. María Torres",
-      specialty: "Radiología Médica",
-      subspecialty: "Radiología Intervencionista",
-      image: doctor0,
+      name: "Dr. Luis Fernando Grisales",
+      specialty: "Director Científico, Médico Especialista en radiología , Fellow en Próstata ",
+      subspecialty: "",
+      image: doctor4,
     },
   ];
 
-  // Duplicación necesaria para el bucle de desplazamiento continuo
+ 
   const duplicatedSpecialists = [...specialists, ...specialists];
 
-  // Auto-scroll continuo usando el ciclo de animación del navegador
+  
   useEffect(() => {
     const container = carouselRef.current;
     let animationFrameId;

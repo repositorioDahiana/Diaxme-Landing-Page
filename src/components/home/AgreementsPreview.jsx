@@ -1,64 +1,23 @@
 import { Link } from "react-router-dom";
+import aliado1 from "../../assets/images/cofrem.png"
+import aliado2 from "../../assets/images/LogoMedPlus.webp"
+import aliado3 from "../../assets/images/LogoPositiva.webp"
+import aliado4 from "../../assets/images/LogoUValle.png"
+import aliado5 from "../../assets/images/LogoColmena.webp"
+import aliado6 from "../../assets/images/LogoCoomeva.webp"
+import aliado7 from "../../assets/images/LogoSenderos.png"
 import iconPlaceholder from "../../assets/Iconos/email.png";
 
 function AgreementsPreview() {
-  const categories = [
-    {
-      id: "medicina-prepagada",
-      title: "Medicina Prepagada",
-      description: "Atención preferencial y ágil con las mejores entidades de medicina prepagada.",
-      allies: [
-        { name: "Alianza 1", icon: iconPlaceholder },
-        { name: "Alianza 2", icon: iconPlaceholder },
-        { name: "Alianza 3", icon: iconPlaceholder },
-        { name: "Alianza 4", icon: iconPlaceholder },
-        { name: "Alianza 5", icon: iconPlaceholder },
-      ]
-    },
-    {
-      id: "polizas",
-      title: "Pólizas de Salud",
-      description: "Cobertura amplia a través de pólizas de salud para tu tranquilidad.",
-      allies: [
-        { name: "Póliza 1", icon: iconPlaceholder },
-        { name: "Póliza 2", icon: iconPlaceholder },
-        { name: "Póliza 3", icon: iconPlaceholder },
-        { name: "Póliza 4", icon: iconPlaceholder },
-      ]
-    },
-    {
-      id: "empresas",
-      title: "Convenios Empresas",
-      description: "Beneficios exclusivos para empleados y colaboradores de empresas aliadas.",
-      allies: [
-        { name: "Empresa 1", icon: iconPlaceholder },
-        { name: "Empresa 2", icon: iconPlaceholder },
-        { name: "Empresa 3", icon: iconPlaceholder },
-        { name: "Empresa 4", icon: iconPlaceholder },
-      ]
-    },
-    {
-      id: "regimen-especial",
-      title: "Régimen Especial",
-      description: "Atención especializada para usuarios de regímenes de salud especiales.",
-      allies: [
-        { name: "Especial 1", icon: iconPlaceholder },
-        { name: "Especial 2", icon: iconPlaceholder },
-        { name: "Especial 3", icon: iconPlaceholder },
-        { name: "Especial 4", icon: iconPlaceholder },
-      ]
-    },
-    {
-      id: "eps-caja",
-      title: "EPS y Caja de Compensación",
-      description: "Servicios accesibles a través de convenios con EPS y cajas de compensación.",
-      allies: [
-        { name: "EPS 1", icon: iconPlaceholder },
-        { name: "Caja 1", icon: iconPlaceholder },
-        { name: "EPS 2", icon: iconPlaceholder },
-        { name: "Caja 2", icon: iconPlaceholder },
-      ]
-    }
+  // Lista única sin clasificar
+  const allies = [
+    { id: 1, name: "cofrem", icon: aliado1 },
+    { id: 2, name: "MedPlus", icon: aliado2 },
+    { id: 3, name: "Positiva", icon: aliado3},
+    { id: 4, name: "Universidad de los Llanos", icon: aliado4 },
+    { id: 5, name: "Colmena Seguros", icon: aliado5 },
+    { id: 6, name: "Coomeva Medicina Prepagada", icon: aliado6 },
+    { id: 7, name: "Senderos Preferencial", icon: aliado7 },
   ];
 
   return (
@@ -74,27 +33,17 @@ function AgreementsPreview() {
           <div className="agreements-preview__line"></div>
         </div>
 
-        <div className="agreements-preview__grid">
-          {categories.map((category) => (
-            <article key={category.id} className="agreement-card">
-              <div className="agreement-card__content">
-                <h3 className="agreement-card__title">{category.title}</h3>
-                <p className="agreement-card__description">{category.description}</p>
+        {/* Carrusel horizontal único */}
+        <div className="agreements-preview__marquee-container">
+          <div className="agreements-preview__marquee">
+            {/* Duplicamos la lista para la animación continua */}
+            {[...allies, ...allies].map((ally, index) => (
+              <div key={`${ally.id}-${index}`} className="agreements-preview__ally">
+                <img src={ally.icon} alt={ally.name} className="agreements-preview__ally-icon" />
+                <span className="agreements-preview__ally-name">{ally.name}</span>
               </div>
-              
-              <div className="agreement-card__marquee-container">
-                <div className="agreement-card__marquee">
-                  {/* Duplicamos los items para efecto infinito fluido */}
-                  {[...category.allies, ...category.allies].map((ally, index) => (
-                    <div key={`${category.id}-ally-${index}`} className="agreement-card__ally">
-                      <img src={ally.icon} alt={ally.name} className="agreement-card__ally-icon" />
-                      <span className="agreement-card__ally-name">{ally.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
+            ))}
+          </div>
         </div>
         
         <div className="agreements-preview__actions">

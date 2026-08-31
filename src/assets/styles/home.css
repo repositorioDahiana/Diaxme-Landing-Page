@@ -1515,6 +1515,7 @@ body {
   position: relative;
   padding: 80px 20px;
   background-color: var(--bg-card-soft);
+  overflow: hidden;
 }
 
 .agreements-preview__container {
@@ -1525,7 +1526,7 @@ body {
 .agreements-preview__header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 50px;
+  margin: 0 auto 40px;
 }
 
 .agreements-preview__title {
@@ -1556,96 +1557,51 @@ body {
   border-radius: 4px;
 }
 
-.agreements-preview__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+/* Marquee / Carrusel de Íconos */
+.agreements-preview__marquee-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 30px 0;
   margin-bottom: 50px;
 }
 
-.agreement-card {
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border-light);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.agreement-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-card-hover);
-}
-
-.agreement-card__content {
-  padding: 24px 24px 10px;
-}
-
-.agreement-card__title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--color-text-dark);
-  margin-bottom: 10px;
-}
-
-.agreement-card__description {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--color-text-body);
-}
-
-.agreement-card__marquee-container {
-  overflow: hidden;
-  width: 100%;
-  padding: 20px 0;
-  background: rgba(110, 200, 216, 0.03);
-  border-top: 1px dashed var(--color-border-light);
-  margin-top: auto;
-}
-
-.agreement-card__marquee {
+.agreements-preview__marquee {
   display: flex;
   width: max-content;
-  animation: marquee 15s linear infinite;
-  gap: 30px;
-  padding: 0 15px;
+  animation: marquee 20s linear infinite;
+  gap: 40px;
 }
 
-.agreement-card__marquee:hover {
+.agreements-preview__marquee:hover {
   animation-play-state: paused;
 }
 
-.agreement-card__ally {
+.agreements-preview__ally {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-width: 80px;
+  gap: 10px;
+  min-width: 90px;
 }
 
-.agreement-card__ally-icon {
-  width: 45px;
-  height: 45px;
+.agreements-preview__ally-icon {
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-.agreement-card__ally:hover .agreement-card__ally-icon {
-  transform: scale(1.1);
+.agreements-preview__ally:hover .agreements-preview__ally-icon {
+  transform: scale(1.15);
 }
 
-.agreement-card__ally-name {
-  font-size: 0.75rem;
+.agreements-preview__ally-name {
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-text-soft);
   text-align: center;
-  max-width: 90px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 @keyframes marquee {
@@ -1653,7 +1609,7 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 15px));
+    transform: translateX(-50%);
   }
 }
 
@@ -1665,5 +1621,9 @@ body {
 @media (max-width: 768px) {
   .agreements-preview {
     padding: 60px 20px;
+  }
+
+  .agreements-preview__marquee {
+    gap: 25px;
   }
 }

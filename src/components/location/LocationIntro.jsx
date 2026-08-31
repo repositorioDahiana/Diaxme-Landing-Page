@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 
 import Ubicacion1Img from "../../assets/images/Ubicacion1.png";
-import Ubicacion2Img from "../../assets/images/Fondo.jpg";
+import Ubicacion2Img from "../../assets/images/Ubicacion2.jpg";
 
 import ubicacionIcon from "../../assets/Iconos/Ubicacion.png";
 import relojIcon from "../../assets/Iconos/email.png";
