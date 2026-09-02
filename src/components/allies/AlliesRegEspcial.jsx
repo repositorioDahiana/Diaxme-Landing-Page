@@ -1,31 +1,21 @@
 import medicinaIcon from "../../assets/Iconos/profesor.png";
 
-import Icono1 from "../../assets/Iconos/email.png";
-import Icono2 from "../../assets/Iconos/email.png";
-import Icono3 from "../../assets/Iconos/email.png";
-import Icono4 from "../../assets/Iconos/email.png";
-
+import Eps1 from "../../assets/images/LogoCajacopi.png";
+import Eps2 from "../../assets/images/LogoSanitas.webp";
+import Eps3 from "../../assets/images/LogoFamisanar.png";
+import Eps4 from "../../assets/images/LogoNuevaEps.png";
+import Eps5 from "../../assets/images/LogoSaludTotal.webp";
+import Eps6 from "../../assets/images/LogoPijaoSalud.png";
+import Eps7 from "../../assets/images/LogoPolicia.webp";
 
 const allies = [
-  {
-    icon: Icono1,
-    name: "Texto",
-  },
-
-  {
-    icon: Icono2,
-    name: "Texto",
-  },
-
-  {
-    icon: Icono3,
-    name: "Texto",
-  },
-
-  {
-    icon: Icono4,
-    name: "Texto",
-  },
+    { id: 17, name: "Cajacopi", icon: Eps1 },
+    { id: 18, name: "Eps sanitas", icon: Eps2 },
+    { id: 19, name: "Famisanar", icon: Eps3 },
+    { id: 20, name: "Nueva EPS", icon: Eps4 },
+    { id: 21, name: "Salud Total", icon: Eps5 },
+    { id: 22, name: "Pijao salud", icon: Eps6 },
+    { id: 38, name: "Regional De Aseguramiento En Salud No.7", icon: Eps7 },
 
 ];
 
@@ -54,10 +44,6 @@ function AlliesRegEspcial() {
               <h2 className="allies-prepaid__title"> 
                 Régimen Especial y EPS
               </h2>
-
-              <p className="allies-prepaid__subtitle">
-                ? entidades aliadas
-              </p>
 
             </div>
 

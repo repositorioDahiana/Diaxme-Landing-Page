@@ -1,32 +1,14 @@
 import medicinaIcon from "../../assets/Iconos/contrato.png";
 
-// ICONOS CARDS
-import Icono1 from "../../assets/Iconos/email.png";
-import Icono2 from "../../assets/Iconos/email.png";
-import Icono3 from "../../assets/Iconos/email.png";
-import Icono4 from "../../assets/Iconos/email.png";
+import poliza1 from "../../assets/images/LogoEquidadSeguros.webp";
+import poliza2 from "../../assets/images/LogoSeguros.webp";
+import poliza3 from "../../assets/images/LogoBMI.webp";
 
 
 const allies = [
-  {
-    icon: Icono1,
-    name: "Texto",
-  },
-
-  {
-    icon: Icono2,
-    name: "Texto",
-  },
-
-  {
-    icon: Icono3,
-    name: "Texto",
-  },
-
-  {
-    icon: Icono4,
-    name: "Texto",
-  },
+  { id: 8, name: "La Equidad Seguros De Vidad O.C", icon: poliza1 },
+  { id: 9, name: "Compañia Mundial De Seguros S.A.", icon: poliza2 },
+  { id: 10, name: "BMI Colombia Compañia De Seguros De Vida S.A", icon: poliza3 }
 
  
 ];
@@ -56,11 +38,7 @@ function AlliesPols() {
               <h2 className="allies-prepaid__title">
                 Pólizas de Salud
               </h2>
-
-              <p className="allies-prepaid__subtitle">
-                ? entidades aliadas
-              </p>
-
+              
             </div>
 
           </div>

@@ -17,7 +17,6 @@ function Ppss() {
       <AlliesPols />
       <AlliesConEmp />
       <AlliesRegEspcial />
-      <AlliesCaja />
     </div>
   );
 }

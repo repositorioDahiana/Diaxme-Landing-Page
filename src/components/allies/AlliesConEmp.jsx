@@ -1,32 +1,35 @@
 import medicinaIcon from "../../assets/Iconos/ciudad.png";
 
-import Icono1 from "../../assets/Iconos/email.png";
-import Icono2 from "../../assets/Iconos/email.png";
-import Icono3 from "../../assets/Iconos/email.png";
-import Icono4 from "../../assets/Iconos/email.png";
-
+import Conve1 from "../../assets/images/LogoEquivida.png";
+import Conve2 from "../../assets/images/LogoUnaac.png";
+import Conve3 from "../../assets/images/LogoIntegral.png";
+import Conve4 from "../../assets/images/LogoMultisalud.png";
+import Conve5 from "../../assets/images/LogoIntegrarSa.png";
+import Conve6 from "../../assets/images/LogoRadiara.png";
+import Conve7 from "../../assets/images/LogoServicioIntegral.png";
+import Conve8 from "../../assets/images/LogoSolimed.webp";
+import Conve9 from "../../assets/images/LogoLlano.png";
+import Conve10 from "../../assets/images/LogoFodegas.png";
+import Conve11 from "../../assets/images/LogoUValle.png"
+import Conve12 from "../../assets/images/LogoUnad.png";
+import Conve13 from "../../assets/images/cofrem.png"
 
 
 const allies = [
-  {
-    icon: Icono1,
-    name: "Texto",
-  },
+    { id: 23, name: "Equivida Salud Ocupacional S.A", icon: Conve1 },
+    { id: 24, name: "Unidad Ambulatrio De Alta Complejidad", icon: Conve2 },
+    { id: 25, name: "Integral Ips", icon: Conve3 },
+    { id: 26, name: "Multisalud SAS", icon: Conve4 },
+    { id: 27, name: "Integrar Salud Y Seguridad S.A.S", icon: Conve5 },
+    { id: 28, name: "Radiara Red De Especialistas", icon: Conve6 },
+    { id: 29, name: "Servicios Integrales De Especialistas En Alivio Del Dolor Y Rehabilitacion SA", icon: Conve7 },
+    { id: 30, name: "IPS Solimed JD SAS", icon: Conve8 },
+    { id: 31, name: "Tecnologia Especializada En Salud Del Meta SAS", icon: Conve9 },
+    { id: 34, name: "Fondo de empleados de Grupo de llano -Fodegas", icon: Conve10 },
+    { id: 35, name: "Universidad de los llanos ", icon: Conve11 },
+    { id: 36, name: "Universidad Nacional -Unad", icon: Conve12 },
+    { id: 37, name: "caja de compensacion Cofrem", icon: Conve13},
 
-  {
-    icon: Icono2,
-    name: "Texto",
-  },
-
-  {
-    icon: Icono3,
-    name: "Texto",
-  },
-
-  {
-    icon: Icono4,
-    name: "Texto",
-  },
 
 ];
 
@@ -55,10 +58,6 @@ function AlliesConEmp() {
               <h2 className="allies-prepaid__title"> 
                 Convenio Empresas
               </h2>
-
-              <p className="allies-prepaid__subtitle">
-                ? entidades aliadas
-              </p>
 
             </div>
 
