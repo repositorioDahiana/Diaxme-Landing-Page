@@ -9,7 +9,7 @@ import Eps6 from "../../assets/images/LogoPijaoSalud.png";
 import Eps7 from "../../assets/images/LogoPolicia.webp";
 
 const allies = [
-    { id: 17, name: "Cajacopi", icon: Eps1 },
+    { id: 17, name: "Proteger EPS", icon: Eps1 },
     { id: 18, name: "Eps sanitas", icon: Eps2 },
     { id: 19, name: "Famisanar", icon: Eps3 },
     { id: 20, name: "Nueva EPS", icon: Eps4 },

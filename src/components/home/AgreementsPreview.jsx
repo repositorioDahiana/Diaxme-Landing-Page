@@ -53,7 +53,7 @@ function AgreementsPreview() {
     { id: 15, name: "Medisanitas", icon: Med5 },
     { id: 16, name: "MedPlus Medicina Prepagada", icon: Med6 },
 
-    { id: 17, name: "Cajacopi", icon: Eps1 },
+    { id: 17, name: "Proteger EPS", icon: Eps1 },
     { id: 18, name: "Eps sanitas", icon: Eps2 },
     { id: 19, name: "Famisanar", icon: Eps3 },
     { id: 20, name: "Nueva EPS", icon: Eps4 },
