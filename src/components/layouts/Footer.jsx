@@ -81,7 +81,7 @@ function Footer() {
           <ul className="contact-list">
             <li>
               <img src={telefono} alt="Teléfono" />
-              <a href="tel:+608 6836182">+608 683 61 82</a>
+              <a href="tel:+608 6836182">+6086836182</a>
             </li>
 
             <li>

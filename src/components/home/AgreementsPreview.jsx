@@ -62,7 +62,6 @@ function AgreementsPreview() {
     { id: 38, name: "Regional De Aseguramiento En Salud No.7", icon: Eps7 },
 
     { id: 23, name: "Equivida Salud Ocupacional S.A", icon: Conve1 },
-    { id: 24, name: "Unidad Ambulatrio De Alta Complejidad", icon: Conve2 },
     { id: 25, name: "Integral Ips", icon: Conve3 },
     { id: 26, name: "Multisalud SAS", icon: Conve4 },
     { id: 27, name: "Integrar Salud Y Seguridad S.A.S", icon: Conve5 },

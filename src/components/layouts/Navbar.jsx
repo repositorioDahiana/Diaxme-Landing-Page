@@ -56,7 +56,7 @@ function Navbar() {
             <div className="icon-box">
               <img src={telefonoIcon} alt="Teléfono" />
             </div>
-            <span className="top-link-text hide-mobile-md">+606 340 23 33</span>
+            <span className="top-link-text hide-mobile-md">+608 683 6182</span>
           </a>
 
           {/* Resultados */}
