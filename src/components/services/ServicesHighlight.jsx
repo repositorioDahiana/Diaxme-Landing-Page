@@ -136,20 +136,30 @@ function ServicesHighlight() {
                   }`}
                 >
                   <div className="service-card__icon">
-                    <img src={item.icon} alt={item.title} />
+                    <img 
+                      src={item.icon} 
+                      alt={item.title} 
+                      loading="eager" 
+                      decoding="async" 
+                      width="64"
+                      height="64"
+                    />
                   </div>
 
                   <div className="service-card__content">
                     <h3>{item.title}</h3>
-                    {/* Corrección: Cambiado item.desc por item.description */}
                     <p>{item.description}</p>
                   </div>
                 </div>
 
                 {/* BACK */}
                 <div className="service-card service-card--back">
-                  {/* Corrección: Cambiado item.image por item.bgImage */}
-                  <img src={item.bgImage} alt={item.title} />
+                  <img 
+                    src={item.bgImage} 
+                    alt={item.title} 
+                    loading="lazy" 
+                    decoding="async"
+                  />
                 </div>
 
               </div>

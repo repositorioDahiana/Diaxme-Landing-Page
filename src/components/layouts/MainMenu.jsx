@@ -130,7 +130,7 @@ function MainMenu() {
 
           <li onClick={closeMenu}>
             <a
-              href="https://appcedira.com/solicitarcita/public/solicitud-examen"
+              href="https://wa.me/573174042064?text=Hola,%20deseo%20agendar%20una%20cita%20como%20Usuario%20Particular"
               target="_blank"
               rel="noopener noreferrer"
               className="agenda-btn"
